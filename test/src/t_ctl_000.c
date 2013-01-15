@@ -9,6 +9,7 @@
 // system
 // ---------------------------------------------------------
 #include <errno.h>
+#include <libgen.h>
 
 // ---------------------------------------------------------
 // own 
@@ -44,7 +45,7 @@ int main(int argc, const char* argv[] )
 {
   int sysRc = 0 ;
 
-  logger(LS_PRG_START,argv[0]) ;
+  logger(LS_PRG_START,basename( (char*) argv[0]) ) ;
 
 #if 0
 _door :
