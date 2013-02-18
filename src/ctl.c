@@ -48,6 +48,8 @@ char *_gLoggerLevel[] = { [INF]="INF",
 
 int _gMaxLevel = DEFAULT_LOG_LEVEL ;
 
+char _gLogFileName[256] ;
+
 /******************************************************************************/
 /*   D E F I N E S                                                            */
 /******************************************************************************/
@@ -190,7 +192,21 @@ int loggerFunc( const int   line,
 }
 
 /******************************************************************************/
-/* set max logging level                                      */
+/* init logging                                    */
+/******************************************************************************/
+int initLogging( const char* logName, int logLevel )
+{
+  int sysRc = 0 ;
+
+  setMaxLogLevel( logLevel ) ;
+
+  sysRc = setLogFileName( logName ) ;
+  
+_door :
+  return sysRc ;
+}
+/******************************************************************************/
+/* set max logging level                                                      */
 /******************************************************************************/
 void setMaxLogLevel( int maxLevel )
 {
@@ -198,10 +214,17 @@ void setMaxLogLevel( int maxLevel )
 }
 
 /******************************************************************************/
-/* set logging file name      */
+/* set logging file name                                  */
 /******************************************************************************/
-int  setLogFileName( const char* fName )
+int setLogFileName( const char* fName )
 {
+  FILE *fp ;
+
+  sprintf(_gLogFileName[256],"%s",(char*)fName);
+ 
+  fp = fopen(_gLogFileName,"a+");
+  
+ 
   return 0 ;
 }
 
