@@ -27,6 +27,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <time.h>
+#include <errno.h>
 
 // ---------------------------------------------------------
 // own 
@@ -50,6 +51,8 @@ int _gMaxLevel = DEFAULT_LOG_LEVEL ;
 
 char _gLogFileName[256] ;
 
+FILE *_gLogFP ;
+
 /******************************************************************************/
 /*   D E F I N E S                                                            */
 /******************************************************************************/
@@ -66,6 +69,8 @@ char _gLogFileName[256] ;
 /*   P R O T O T Y P E S                                                      */
 /******************************************************************************/
 void getLogTime( char *timeStr ) ;
+void setMaxLogLevel( int maxLevel ) ;
+int  setLogFileName( const char* name ) ;
 
 /******************************************************************************/
 /*                                                                            */
@@ -94,9 +99,9 @@ void getLogTime( char *timeStr ) ;
 /*    always returns 0                                                        */
 /*                                                                            */
 /******************************************************************************/
-int loggerFunc( const int   line,
-                const char* file,
-                const char* func,
+int loggerFunc( const int   line,  // source file line of the logger macro
+                const char* file,  // source file name of the logger macro
+                const char* func,  // source file function of the logger macro
                       int   id,
                       int   lev,
                       char* msg)
@@ -158,13 +163,13 @@ int loggerFunc( const int   line,
   // -------------------------------------------------------
   if( _gMaxLevel > lev || lev < MIN_LOG_LEVEL )
   {
-    printf("%s",lineBuffer) ;
+    fprintf( _gLogFP, "%s", lineBuffer ) ;
   }
 
-//printf("%d von %d \n",_gMaxLevel,LOG);
   if( _gMaxLevel > LOG )
   {
-    printf("%s",dbgBuffer) ;
+    fprintf( _gLogFP, "%s", dbgBuffer ) ;
+  //printf("%s",dbgBuffer) ;
   }
 
   // -------------------------------------------------------
@@ -174,25 +179,26 @@ int loggerFunc( const int   line,
   {
     int i ;
 
-    printf( MARKER_OFFSET "  begin log cache dump " MARKER_OFFSET "\n") ;
+    fprintf(_gLogFP,MARKER_OFFSET "  begin log cache dump " MARKER_OFFSET "\n");
     for( i=_sBufferCacheIndex; i<LOG_BUFFER_CACHE_SIZE; i++ )
     {
-      printf( "%s", _sBufferCache[i] ) ;
+      fprintf( _gLogFP, "%s", _sBufferCache[i] ) ;
     }
 
     for( i=0; i<_sBufferCacheIndex; i++ )
     {
-      printf( "%s", _sBufferCache[i] ) ;
+      fprintf( _gLogFP, "%s", _sBufferCache[i] ) ;
     }
-    printf( MARKER_OFFSET "  end log cache dump   " MARKER_OFFSET "\n") ;
+    fprintf(_gLogFP, MARKER_OFFSET "  end log cache dump   " MARKER_OFFSET"\n");
   }
 
+  fflush( _gLogFP );
 //_door:
   return 0 ;
 }
 
 /******************************************************************************/
-/* init logging                                    */
+/* init logging                                                               */
 /******************************************************************************/
 int initLogging( const char* logName, int logLevel )
 {
@@ -202,7 +208,6 @@ int initLogging( const char* logName, int logLevel )
 
   sysRc = setLogFileName( logName ) ;
   
-_door :
   return sysRc ;
 }
 /******************************************************************************/
@@ -214,18 +219,25 @@ void setMaxLogLevel( int maxLevel )
 }
 
 /******************************************************************************/
-/* set logging file name                                  */
+/* set logging file name                                                      */
 /******************************************************************************/
 int setLogFileName( const char* fName )
 {
-  FILE *fp ;
+  int sysRc =0 ;
 
-  sprintf(_gLogFileName[256],"%s",(char*)fName);
+  sprintf( _gLogFileName, "%s", (char*)fName );
  
-  fp = fopen(_gLogFileName,"a+");
-  
+  _gLogFP = fopen(_gLogFileName,"a");
+  if( _gLogFP == NULL )
+  {
+    perror( _gLogFileName );
+    sysRc = errno ; 
+    goto _door ;
+  }
+
+_door :
  
-  return 0 ;
+  return sysRc ;
 }
 
 /******************************************************************************/

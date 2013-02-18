@@ -24,29 +24,30 @@
 #define LEV_LS_PRG_STOP  SYS
 #define TXT_LS_PRG_STOP  "quiting %s"
 
-#define     LS_GEN_INF   118
-#define LEV_LS_GEN_INF   INF
-#define TXT_LS_GEN_INF   "an info has occured"
-
-#define     LS_GEN_LOG   117
-#define LEV_LS_GEN_LOG   LOG
-#define TXT_LS_GEN_LOG   "a log has occured"
-
-#define     LS_GEN_WAR   116
-#define LEV_LS_GEN_WAR   WAR
-#define TXT_LS_GEN_WAR   "a warning has occured"
-
-#define     LS_GEN_ERR   115
-#define LEV_LS_GEN_ERR   ERR
-#define TXT_LS_GEN_ERR   "an error has occured"
+#define     LS_GEN_SYS   110
+#define LEV_LS_GEN_SYS   SYS
+#define TXT_LS_GEN_SYS   "a system has occured"
 
 #define     LS_GEN_CRI   111
 #define LEV_LS_GEN_CRI   CRI
 #define TXT_LS_GEN_CRI   "an critical has occured"
 
-#define     LS_GEN_SYS   110
-#define LEV_LS_GEN_SYS   SYS
-#define TXT_LS_GEN_SYS   "an critical has occured"
+#define     LS_GEN_ERR   115
+#define LEV_LS_GEN_ERR   ERR
+#define TXT_LS_GEN_ERR   "an error has occured"
+
+#define     LS_GEN_WAR   116
+#define LEV_LS_GEN_WAR   WAR
+#define TXT_LS_GEN_WAR   "a warning has occured"
+
+#define     LS_GEN_LOG   117
+#define LEV_LS_GEN_LOG   LOG
+#define TXT_LS_GEN_LOG   "a log has occured"
+
+#define     LS_GEN_INF   118
+#define LEV_LS_GEN_INF   INF
+#define TXT_LS_GEN_INF   "an info has occured"
+
 
 /******************************************************************************/
 /*   M A C R O S                                                              */

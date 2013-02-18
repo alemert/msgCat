@@ -82,7 +82,8 @@ int loggerFunc( const int   line,
                       int   id,
                       int   lev,
                       char* msg) ;
-
+#if( 0 )
 void setMaxLogLevel( int maxLevel ) ;
 int  setLogFileName( const char* name ) ;
-
+#endif
+int initLogging( const char* logName, int logLevel ) ;
