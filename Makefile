@@ -4,8 +4,8 @@
 
 MAKE_INCLUDE_PATH=mk.inc
 
-CATALOG.H = $addprefix( include/msgcat/,lgstd.h )
-
+CATALOG.H = $(addprefix include/msgcat/,lgstd.h )
+SRC.O += $(CAT_OBJ_PATH)/catalogrc.o
 
 # ------------------------------------------------------------------------------
 # Compiler and BIT
@@ -22,7 +22,6 @@ DBGOPT = -g
 # sources
 # ------------------------------------------------------------------------------
 SOURCES = ctl.c 
-#catalogrc.c
 
 # ------------------------------------------------------------------------------
 # main source
@@ -54,8 +53,14 @@ include $(MAKE_INCLUDE_PATH)/general.modules.mk
 # ------------------------------------------------------------------------------
 # additional internal rules
 # ------------------------------------------------------------------------------
-#src/catalogrc.c : $(CATALOG.H)
-#	bin/crtRcRc.pl $@ $^ 
+
+$(CAT_SRC_PATH)/catalogrc.c : bin/crtRcRc.pl
+
+$(CAT_SRC_PATH)/catalogrc.c : $(CATALOG.H)
+	bin/crtRcRc.pl $@ $^ 
+
+$(CAT_OBJ_PATH)/catalogrc.o : $(CAT_SRC_PATH)/catalogrc.c $(MAKEFILE)
+	$(CC) $(CCOPT) $< -o $@
 
 # ------------------------------------------------------------------------------
 # tests

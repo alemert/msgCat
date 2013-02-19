@@ -44,11 +44,50 @@ foreach my $cat (@ARGV)
 }
 
 open SRC, ">$cFile" ;
-print SRC  "#include <catalog.h>\n";
+print SRC  "
+/******************************************************************************/
+/*               D O   N O T   C H A N G E   T H I S   C O D E                */
+/*                         it will created automaticly                        */
+/******************************************************************************/
 
-foreach my $id( keys %cat )
+/******************************************************************************/
+/*   I N C L U D E S                         */
+/******************************************************************************/
+
+// ---------------------------------------------------------
+// system
+// ---------------------------------------------------------
+#include <stdlib.h>
+#include <string.h>
+
+// ---------------------------------------------------------
+// own 
+// ---------------------------------------------------------
+#include <catalog.h>
+
+tMsgItem* buildCatalog( ) 
 {
+  tMsgItem* anchor = (tMsgItem*) malloc( sizeof(tMsgItem) ) ;
+  tMsgItem* p = anchor ;
+" ;
 
+foreach my $id ( sort keys %cat )
+{
+  print SRC "
+  p->next = (tMsgItem*) malloc( sizeof(tMsgItem) ) ;
+  p = p->next ;
+  p->next = NULL ;
+  p->id = $id ;
+  strcpy(p->define,\"$cat{$id}{define}\") ;
+  strcpy(p->class,\"$cat{$id}{class}\") ;
+  strcpy(p->txt,\"$cat{$id}{LEV}\") ;
+  strcpy(p->txt,$cat{$id}{TXT}) ;
+  " ;
 }
+
+print SRC "
+  return anchor ;  
+}
+" ;
 
 close SRC ;
