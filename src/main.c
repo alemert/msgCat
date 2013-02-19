@@ -27,6 +27,8 @@
 /******************************************************************************/
 /*   P R O T O T Y P E S                                                      */
 /******************************************************************************/
+void printAllMsg( tMsgItem *anchor ) ;
+void printMsg( tMsgItem *p ) ;
 
 /******************************************************************************/
 /*                                                                            */
@@ -39,13 +41,17 @@ int main(int argc, const char* argv[] )
 {
   tMsgItem *anchor ;
 
-  int sysRc ;
+  int sysRc = 0 ;
 
   sysRc = handleCmdLn( argc, argv ) ;
   if( sysRc != 0 ) goto _door ;
 
   anchor = buildCatalog() ;
 
+  if( ! getFlagAttr( "all" ) )
+  {
+    printAllMsg( anchor ) ;
+  } 
   
 
 _door :
@@ -60,4 +66,21 @@ _door :
 /*   F U N C T I O N S                                                        */
 /*                                                                            */
 /******************************************************************************/
+void printAllMsg( tMsgItem *anchor )
+{
+  tMsgItem *p ;
 
+  p = anchor->next ;
+
+  while( p->next != NULL )
+  {
+    printMsg( p ) ; 
+    p = p->next ;
+  }
+}
+
+void printMsg( tMsgItem *p ) 
+{
+  printf("%05d %-20s >%-3s<\n", p->id, p->define, p->lev ) ;
+
+}
