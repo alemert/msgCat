@@ -4,7 +4,7 @@
 
 MAKE_INCLUDE_PATH=mk.inc
 
-CATALOG.H = $(addprefix include/msgcat/,lgstd.h )
+CATALOG.H = $(addprefix include/msgcat/,lgstd.h lgmqm.h )
 SRC.O += $(CAT_OBJ_PATH)/catalogrc.o
 
 # ------------------------------------------------------------------------------

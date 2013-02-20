@@ -1,5 +1,5 @@
 /******************************************************************************/
-/* ctl test                     */
+/* message catalog test                             */
 /******************************************************************************/
 
 /******************************************************************************/
@@ -46,7 +46,7 @@ int main(int argc, const char* argv[] )
   int sysRc = 0 ;
 
   initLogging( "test/log/t_ctl_000.log", 1 ) ;
-  logger(LS_PRG_START,basename( (char*) argv[0]) ) ;
+  logger(LSTD_PRG_START,basename( (char*) argv[0]) ) ;
 
 #if 0
 _door :
