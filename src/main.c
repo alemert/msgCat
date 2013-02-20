@@ -51,6 +51,7 @@ int main(int argc, const char* argv[] )
   if( ! getFlagAttr( "all" ) )
   {
     printAllMsg( anchor ) ;
+    goto _door ;
   } 
   
 
@@ -81,6 +82,6 @@ void printAllMsg( tMsgItem *anchor )
 
 void printMsg( tMsgItem *p ) 
 {
-  printf("%05d %-20s >%-3s<\n", p->id, p->define, p->lev ) ;
+  printf("%05d %-4s %-15s %3s %s\n", p->id, p->class, p->define, p->lev, p->txt ) ;
 
 }

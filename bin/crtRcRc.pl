@@ -80,7 +80,7 @@ foreach my $id ( sort keys %cat )
   p->id = $id ;
   strcpy(p->define,\"$cat{$id}{define}\") ;
   strcpy(p->class,\"$cat{$id}{class}\") ;
-  strcpy(p->txt,\"$cat{$id}{LEV}\") ;
+  strcpy(p->lev,\"$cat{$id}{LEV}\") ;
   strcpy(p->txt,$cat{$id}{TXT}) ;
   " ;
 }

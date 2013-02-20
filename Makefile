@@ -54,8 +54,6 @@ include $(MAKE_INCLUDE_PATH)/general.modules.mk
 # additional internal rules
 # ------------------------------------------------------------------------------
 
-$(CAT_SRC_PATH)/catalogrc.c : bin/crtRcRc.pl
-
 $(CAT_SRC_PATH)/catalogrc.c : $(CATALOG.H)
 	bin/crtRcRc.pl $@ $^ 
 
