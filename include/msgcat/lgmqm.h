@@ -16,13 +16,13 @@
 /******************************************************************************/
 /*   D E F I N E S                                                            */
 /******************************************************************************/
-#define     LMQM_CONNECTED   1100
-#define LEV_LMQM_CONNECTED    LOG
-#define TXT_LMQM_CONNECTED    "connected to queue manager %s"
+#define     LMQM_CONNECTED     1100
+#define LEV_LMQM_CONNECTED      LOG
+#define TXT_LMQM_CONNECTED      "connected to queue manager %s"
 
-#define     LMQM_DISCONNECTED   1101
-#define LEV_LMQM_DISCONNECTED    LOG
-#define TXT_LMQM_DISCONNECTED    "disconnected to queue manager %s"
+#define     LMQM_DISCONNECTED  1101
+#define LEV_LMQM_DISCONNECTED   LOG
+#define TXT_LMQM_DISCONNECTED   "disconnected to queue manager %s"
 
 #define     LMQM_CONNECT_ERR   1100
 #define LEV_LMQM_CONNECT_ERR    LOG

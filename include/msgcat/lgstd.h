@@ -24,18 +24,23 @@
 #define LEV_LSTD_PRG_STOP  SYS
 #define TXT_LSTD_PRG_STOP  "quiting %s"
 
-#define     LSTD_GEN_SYS   110
+#define     LSTD_GEN_SYS   102
 #define LEV_LSTD_GEN_SYS   SYS
-#define TXT_LSTD_GEN_SYS   "a system has occured"
+#define TXT_LSTD_GEN_SYS   "%s aborted"
 
-#define     LSTD_GEN_CRI   111
+#define     LSTD_GEN_CRI   103
 #define LEV_LSTD_GEN_CRI   CRI
-#define TXT_LSTD_GEN_CRI   "an critical has occured"
+#define TXT_LSTD_GEN_CRI   "%s aborted"
 
-#define     LSTD_GEN_ERR   115
+#define     LSTD_GEN_ERR   104 
 #define LEV_LSTD_GEN_ERR   ERR
-#define TXT_LSTD_GEN_ERR   "an error has occured"
+#define TXT_LSTD_GEN_ERR   "%s aborted"
 
+#define     LSTD_OPEN_FILE_FAILED   110
+#define LEV_LSTD_OPEN_FILE_FAILED   ERR
+#define TXT_LSTD_OPEN_FILE_FAILED   "failed to open file %s"
+
+#if(0)
 #define     LSTD_GEN_WAR   116
 #define LEV_LSTD_GEN_WAR   WAR
 #define TXT_LSTD_GEN_WAR   "a warning has occured"
@@ -48,6 +53,7 @@
 #define LEV_LSTD_GEN_INF   INF
 #define TXT_LSTD_GEN_INF   "an info has occured"
 
+#endif
 
 /******************************************************************************/
 /*   M A C R O S                                                              */
