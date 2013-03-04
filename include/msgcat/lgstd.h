@@ -40,6 +40,14 @@
 #define LEV_LSTD_OPEN_FILE_FAILED   ERR
 #define TXT_LSTD_OPEN_FILE_FAILED   "failed to open file %s"
 
+#define     LSTD_GET_FILE_SIZE    111
+#define LEV_LSTD_GET_FILE_SIZE    ERR
+#define TXT_LSTD_GET_FILE_SIZE    "can not get file size for %s" 
+
+#define     LSTD_MEM_ALLOC_ERROR    120
+#define LEV_LSTD_MEM_ALLOC_ERROR    ERR
+#define TXT_LSTD_MEM_ALLOC_ERROR    "can not allocate memory"
+
 #if(0)
 #define     LSTD_GEN_WAR   116
 #define LEV_LSTD_GEN_WAR   WAR
