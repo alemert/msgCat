@@ -20,21 +20,21 @@
 #define LEV_LSTD_PRG_START    SYS
 #define TXT_LSTD_PRG_START    "starting %s"
 
-#define     LSTD_PRG_STOP  101
-#define LEV_LSTD_PRG_STOP  SYS
-#define TXT_LSTD_PRG_STOP  "quiting %s"
+#define     LSTD_PRG_STOP    101
+#define LEV_LSTD_PRG_STOP    SYS
+#define TXT_LSTD_PRG_STOP    "quiting %s"
 
-#define     LSTD_GEN_SYS   102
-#define LEV_LSTD_GEN_SYS   SYS
-#define TXT_LSTD_GEN_SYS   "%s aborted"
+#define     LSTD_GEN_SYS     102
+#define LEV_LSTD_GEN_SYS     SYS
+#define TXT_LSTD_GEN_SYS     "%s aborted"
 
-#define     LSTD_GEN_CRI   103
-#define LEV_LSTD_GEN_CRI   CRI
-#define TXT_LSTD_GEN_CRI   "%s aborted"
+#define     LSTD_GEN_CRI     103
+#define LEV_LSTD_GEN_CRI     CRI
+#define TXT_LSTD_GEN_CRI     "%s aborted"
 
-#define     LSTD_GEN_ERR   104 
-#define LEV_LSTD_GEN_ERR   ERR
-#define TXT_LSTD_GEN_ERR   "%s aborted"
+#define     LSTD_GEN_ERR     104 
+#define LEV_LSTD_GEN_ERR     ERR
+#define TXT_LSTD_GEN_ERR     "%s aborted"
 
 #define     LSTD_OPEN_FILE_FAILED   110
 #define LEV_LSTD_OPEN_FILE_FAILED   ERR
