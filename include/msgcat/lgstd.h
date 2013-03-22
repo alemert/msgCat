@@ -76,6 +76,10 @@
 #define LEV_LSTD_INI_CLOSE_TAG_ERROR  ERR
 #define TXT_LSTD_INI_CLOSE_TAG_ERROR  "missing close tag %s"
 
+#define     LSTD_INI_DUPLICATED_KEY   209
+#define LEV_LSTD_INI_DUPLICATED_KEY   ERR
+#define TXT_LSTD_INI_DUPLICATED_KEY   "ini key %s dupplicated"
+
 #if(0)
 #define     LSTD_GEN_WAR   116
 #define LEV_LSTD_GEN_WAR   WAR
