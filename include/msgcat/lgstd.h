@@ -52,6 +52,14 @@
 #define LEV_LSTD_MEM_ALLOC_ERROR    ERR
 #define TXT_LSTD_MEM_ALLOC_ERROR    "can not allocate memory"
 
+#define     LSTD_INI_EARLY_EOF        205
+#define LEV_LSTD_INI_EARLY_EOF        ERR
+#define TXT_LSTD_INI_EARLY_EOF        "unexpected EOF %s"
+
+#define     LSTD_INI_CLOSE_TAG_ERROR  209
+#define LEV_LSTD_INI_CLOSE_TAG_ERROR  ERR
+#define TXT_LSTD_INI_CLOSE_TAG_ERROR  "missing close tag %s"
+
 #if(0)
 #define     LSTD_GEN_WAR   116
 #define LEV_LSTD_GEN_WAR   WAR
