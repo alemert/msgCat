@@ -52,9 +52,25 @@
 #define LEV_LSTD_MEM_ALLOC_ERROR    ERR
 #define TXT_LSTD_MEM_ALLOC_ERROR    "can not allocate memory"
 
-#define     LSTD_INI_EARLY_EOF        205
-#define LEV_LSTD_INI_EARLY_EOF        ERR
-#define TXT_LSTD_INI_EARLY_EOF        "unexpected EOF %s"
+#define     LSTD_INI_SYNTAX_ERROR    200
+#define LEV_LSTD_INI_SYNTAX_ERROR    ERR
+#define TXT_LSTD_INI_SYNTAX_ERROR    "ini file syntax error near %s" 
+
+#define     LSTD_INI_MISSING_CHAR   203
+#define LEV_LSTD_INI_MISSING_CHAR   ERR
+#define TXT_LSTD_INI_MISSING_CHAR   "missing char \'%c\' near %-40s"
+
+#define     LSTD_INI_WRONG_CHAR      204
+#define LEV_LSTD_INI_WRONG_CHAR      ERR
+#define TXT_LSTD_INI_WRONG_CHAR      "wrong char \'%c\' near %-40s"
+
+#define     LSTD_INI_EARLY_EOF       205
+#define LEV_LSTD_INI_EARLY_EOF       ERR
+#define TXT_LSTD_INI_EARLY_EOF       "unexpected EOF"
+
+#define     LSTD_INI_OPEN_TAG_ERROR  208
+#define LEV_LSTD_INI_OPEN_TAG_ERROR  ERR
+#define TXT_LSTD_INI_OPEN_TAG_ERROR  "missing open tag near %-20s"
 
 #define     LSTD_INI_CLOSE_TAG_ERROR  209
 #define LEV_LSTD_INI_CLOSE_TAG_ERROR  ERR
