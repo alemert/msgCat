@@ -80,6 +80,14 @@
 #define LEV_LSTD_INI_DUPLICATED_KEY   ERR
 #define TXT_LSTD_INI_DUPLICATED_KEY   "ini key %s dupplicated"
 
+#define     LSTD_INI_EMPTY_MAIN_FILE   210
+#define LEV_LSTD_INI_EMPTY_MAIN_FILE   ERR
+#define TXT_LSTD_INI_EMPTY_MAIN_FILE   "main ini file %s is empty"
+
+#define     LSTD_INI_EMPTY_INC_FILE   211
+#define LEV_LSTD_INI_EMPTY_INC_FILE   WAR
+#define TXT_LSTD_INI_EMPTY_INC_FILE   "include ini file %s is empty"
+
 #if(0)
 #define     LSTD_GEN_WAR   116
 #define LEV_LSTD_GEN_WAR   WAR
