@@ -57,17 +57,18 @@
 #define TXT_LSTD_INI_SYNTAX_ERROR    "ini file syntax error near %s" 
 
 #if(0)
-#define     LSTD_INI_MISSING_CHAR   203
-#define LEV_LSTD_INI_MISSING_CHAR   ERR
-#define TXT_LSTD_INI_MISSING_CHAR   "missing char \'%c\' near %.40s"
+  #define     LSTD_INI_MISSING_CHAR   203
+  #define LEV_LSTD_INI_MISSING_CHAR   ERR
+  #define TXT_LSTD_INI_MISSING_CHAR   "missing char \'%c\' near %.40s"
 
-#define     LSTD_INI_WRONG_CHAR      204
-#define LEV_LSTD_INI_WRONG_CHAR      ERR
-#define TXT_LSTD_INI_WRONG_CHAR      "wrong char \'%c\' near %.40s"
+  #define     LSTD_INI_WRONG_CHAR      204
+  #define LEV_LSTD_INI_WRONG_CHAR      ERR
+  #define TXT_LSTD_INI_WRONG_CHAR      "wrong char \'%c\' near %.40s"
 
-#define     LSTD_INI_EARLY_EOF       205
-#define LEV_LSTD_INI_EARLY_EOF       ERR
-#define TXT_LSTD_INI_EARLY_EOF       "unexpected EOF"
+  #define     LSTD_INI_EARLY_EOF       205
+  #define LEV_LSTD_INI_EARLY_EOF       ERR
+  #define TXT_LSTD_INI_EARLY_EOF       "unexpected EOF"
+#endif
 
 #define     LSTD_INI_OPEN_TAG_ERROR  208
 #define LEV_LSTD_INI_OPEN_TAG_ERROR  ERR
@@ -76,7 +77,6 @@
 #define     LSTD_INI_CLOSE_TAG_ERROR  209
 #define LEV_LSTD_INI_CLOSE_TAG_ERROR  ERR
 #define TXT_LSTD_INI_CLOSE_TAG_ERROR  "missing close tag %s"
-#endif
 
 #define     LSTD_INI_DUPLICATED_KEY   209
 #define LEV_LSTD_INI_DUPLICATED_KEY   ERR
@@ -95,17 +95,17 @@
 #define TXT_LSTD_INI_MAX_INCLUDE_LEVEL "Maximal include level %d reached"
 
 #if(0)
-#define     LSTD_GEN_WAR   116
-#define LEV_LSTD_GEN_WAR   WAR
-#define TXT_LSTD_GEN_WAR   "a warning has occured"
+  #define     LSTD_GEN_WAR   116
+  #define LEV_LSTD_GEN_WAR   WAR
+  #define TXT_LSTD_GEN_WAR   "a warning has occured"
 
-#define     LSTD_GEN_LOG   117
-#define LEV_LSTD_GEN_LOG   LOG
-#define TXT_LSTD_GEN_LOG   "a log has occured"
+  #define     LSTD_GEN_LOG   117
+  #define LEV_LSTD_GEN_LOG   LOG
+  #define TXT_LSTD_GEN_LOG   "a log has occured"
 
-#define     LSTD_GEN_INF   118
-#define LEV_LSTD_GEN_INF   INF
-#define TXT_LSTD_GEN_INF   "an info has occured"
+  #define     LSTD_GEN_INF   118
+  #define LEV_LSTD_GEN_INF   INF
+  #define TXT_LSTD_GEN_INF   "an info has occured"
 
 #endif
 
