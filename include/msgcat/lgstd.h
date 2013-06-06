@@ -56,6 +56,7 @@
 #define LEV_LSTD_INI_SYNTAX_ERROR    ERR
 #define TXT_LSTD_INI_SYNTAX_ERROR    "ini file syntax error near %s" 
 
+#if(0)
 #define     LSTD_INI_MISSING_CHAR   203
 #define LEV_LSTD_INI_MISSING_CHAR   ERR
 #define TXT_LSTD_INI_MISSING_CHAR   "missing char \'%c\' near %.40s"
@@ -75,6 +76,7 @@
 #define     LSTD_INI_CLOSE_TAG_ERROR  209
 #define LEV_LSTD_INI_CLOSE_TAG_ERROR  ERR
 #define TXT_LSTD_INI_CLOSE_TAG_ERROR  "missing close tag %s"
+#endif
 
 #define     LSTD_INI_DUPLICATED_KEY   209
 #define LEV_LSTD_INI_DUPLICATED_KEY   ERR
@@ -87,6 +89,10 @@
 #define     LSTD_INI_EMPTY_INC_FILE   211
 #define LEV_LSTD_INI_EMPTY_INC_FILE   WAR
 #define TXT_LSTD_INI_EMPTY_INC_FILE   "include ini file %s is empty"
+
+#define     LSTD_INI_MAX_INCLUDE_LEVEL 212 
+#define LEV_LSTD_INI_MAX_INCLUDE_LEVEL ERR
+#define TXT_LSTD_INI_MAX_INCLUDE_LEVEL "Maximal include level %d reached"
 
 #if(0)
 #define     LSTD_GEN_WAR   116
