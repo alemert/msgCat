@@ -56,43 +56,33 @@
 #define LEV_LSTD_INI_SYNTAX_ERROR    ERR
 #define TXT_LSTD_INI_SYNTAX_ERROR    "ini file syntax error near %s" 
 
-#if(0)
-  #define     LSTD_INI_MISSING_CHAR   203
-  #define LEV_LSTD_INI_MISSING_CHAR   ERR
-  #define TXT_LSTD_INI_MISSING_CHAR   "missing char \'%c\' near %.40s"
-
-  #define     LSTD_INI_WRONG_CHAR      204
-  #define LEV_LSTD_INI_WRONG_CHAR      ERR
-  #define TXT_LSTD_INI_WRONG_CHAR      "wrong char \'%c\' near %.40s"
-
-  #define     LSTD_INI_EARLY_EOF       205
-  #define LEV_LSTD_INI_EARLY_EOF       ERR
-  #define TXT_LSTD_INI_EARLY_EOF       "unexpected EOF"
-#endif
-
-#define     LSTD_INI_OPEN_TAG_ERROR  208
+#define     LSTD_INI_OPEN_TAG_ERROR  201
 #define LEV_LSTD_INI_OPEN_TAG_ERROR  ERR
 #define TXT_LSTD_INI_OPEN_TAG_ERROR  "missing open tag near %.20s"
 
-#define     LSTD_INI_CLOSE_TAG_ERROR  209
+#define     LSTD_INI_CLOSE_TAG_ERROR  202
 #define LEV_LSTD_INI_CLOSE_TAG_ERROR  ERR
 #define TXT_LSTD_INI_CLOSE_TAG_ERROR  "missing close tag %s"
 
-#define     LSTD_INI_DUPLICATED_KEY   209
+#define     LSTD_INI_DUPLICATED_KEY   203
 #define LEV_LSTD_INI_DUPLICATED_KEY   ERR
 #define TXT_LSTD_INI_DUPLICATED_KEY   "ini key %s dupplicated"
 
-#define     LSTD_INI_EMPTY_MAIN_FILE   210
+#define     LSTD_INI_EMPTY_MAIN_FILE   204
 #define LEV_LSTD_INI_EMPTY_MAIN_FILE   ERR
 #define TXT_LSTD_INI_EMPTY_MAIN_FILE   "main ini file %s is empty"
 
-#define     LSTD_INI_EMPTY_INC_FILE   211
+#define     LSTD_INI_EMPTY_INC_FILE   205
 #define LEV_LSTD_INI_EMPTY_INC_FILE   WAR
 #define TXT_LSTD_INI_EMPTY_INC_FILE   "include ini file %s is empty"
 
-#define     LSTD_INI_MAX_INCLUDE_LEVEL 212 
+#define     LSTD_INI_MAX_INCLUDE_LEVEL 206
 #define LEV_LSTD_INI_MAX_INCLUDE_LEVEL ERR
 #define TXT_LSTD_INI_MAX_INCLUDE_LEVEL "Maximal include level %d reached"
+
+#define     LSTD_INI_MAX_INCLUDE_FILES 207
+#define LEV_LSTD_INI_MAX_INCLUDE_FILES ERR
+#define TXT_LSTD_INI_MAX_INCLUDE_FILES "Maximal nr. %d of include files reached"
 
 #if(0)
   #define     LSTD_GEN_WAR   116
