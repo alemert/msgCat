@@ -21,8 +21,8 @@
 /******************************************************************************/
 /*   D E F I N E S                                                            */
 /******************************************************************************/
-#define     FORMAT "%05d %-4s %-22s %3s %s\n"
-#define TOP_FORMAT "%-5s%-5s %-22s %3s %s\n"
+#define     FORMAT "%05d %-4s %-25s %3s %s\n"
+#define TOP_FORMAT "%-5s%-5s %-25s %3s %s\n"
 
 /******************************************************************************/
 /*   M A C R O S                                                              */
@@ -140,7 +140,7 @@ void printAllMsg( tMsgItem *anchor )
 
   p = anchor->next ;
 
-  printf( TOP_FORMAT, " ID", "CLASS", " DEFINE", "LEV", "  TEXT" ) ;
+  printf( TOP_FORMAT, " ID", "CLASS", " DEFINE", "LEV", "TEXT" ) ;
 
   while( p->next != NULL )
   {
@@ -159,7 +159,7 @@ void printDefineMsg( tMsgItem *anchor, char *attrValue )
 
   p = anchor ;
 
-  printf( TOP_FORMAT, " ID", "CLASS", " DEFINE", "LEV", "  TEXT" ) ;
+  printf( TOP_FORMAT, " ID", "CLASS", " DEFINE", "LEV", "TEXT" ) ;
 
   while( p->next != NULL )
   {
@@ -182,7 +182,7 @@ void printClassMsg( tMsgItem *anchor, char *attrValue )
 
   p = anchor ;
 
-  printf( TOP_FORMAT, " ID", "CLASS", " DEFINE", "LEV", "  TEXT" ) ;
+  printf( TOP_FORMAT, " ID", "CLASS", " DEFINE", "LEV", "TEXT" ) ;
 
   while( p->next != NULL )
   {
@@ -243,7 +243,7 @@ void printIdMsg( tMsgItem *anchor, int id )
  
   p = anchor ;
 
-  printf( TOP_FORMAT, " ID", "CLASS", " DEFINE", "LEV", "  TEXT" ) ;
+  printf( TOP_FORMAT, " ID", "CLASS", " DEFINE", "LEV", "TEXT" ) ;
 
   while( p->next != NULL )
   {

@@ -65,7 +65,7 @@
 #define TXT_LSTD_INI_CLOSE_TAG_ERROR  "missing close tag %s"
 
 #define     LSTD_INI_DUPLICATED_KEY   203
-#define LEV_LSTD_INI_DUPLICATED_KEY   ERR
+#define LEV_LSTD_INI_DUPLICATED_KEY   WAR
 #define TXT_LSTD_INI_DUPLICATED_KEY   "ini key %s dupplicated"
 
 #define     LSTD_INI_EMPTY_MAIN_FILE   204
@@ -84,20 +84,10 @@
 #define LEV_LSTD_INI_MAX_INCLUDE_FILES ERR
 #define TXT_LSTD_INI_MAX_INCLUDE_FILES "Maximal nr. %d of include files reached"
 
-#if(0)
-  #define     LSTD_GEN_WAR   116
-  #define LEV_LSTD_GEN_WAR   WAR
-  #define TXT_LSTD_GEN_WAR   "a warning has occured"
+#define     LSTD_INI_TAG_NULL   208
+#define LEV_LSTD_INI_TAG_NULL   ERR
+#define TXT_LSTD_INI_TAG_NULL   "ini tag is NULL"
 
-  #define     LSTD_GEN_LOG   117
-  #define LEV_LSTD_GEN_LOG   LOG
-  #define TXT_LSTD_GEN_LOG   "a log has occured"
-
-  #define     LSTD_GEN_INF   118
-  #define LEV_LSTD_GEN_INF   INF
-  #define TXT_LSTD_GEN_INF   "an info has occured"
-
-#endif
 
 /******************************************************************************/
 /*   M A C R O S                                                              */
