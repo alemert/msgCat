@@ -142,7 +142,7 @@ void printAllMsg( tMsgItem *anchor )
 
   printf( TOP_FORMAT, " ID", "CLASS", " DEFINE", "LEV", "TEXT" ) ;
 
-  while( p->next != NULL )
+  while( p != NULL )
   {
     printMsg( p ) ; 
     p = p->next ;
