@@ -88,6 +88,10 @@
 #define LEV_LSTD_INI_TAG_NULL   ERR
 #define TXT_LSTD_INI_TAG_NULL   "ini tag is NULL"
 
+#define     LSTD_INI_SEARCH_STR_CNT_ERR 209
+#define LEV_LSTD_INI_SEARCH_STR_CNT_ERR ERR
+#define TXT_LSTD_INI_SEARCH_STR_CNT_ERR "Wrong nr. of search string <tag><key><value>"
+
 /******************************************************************************/
 /*   M A C R O S                                                              */
 /******************************************************************************/
