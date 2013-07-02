@@ -39,7 +39,8 @@
 /*   G L O B A L S                                                            */
 /******************************************************************************/
 
-char *_gLoggerLevel[] = { [INF]="INF",
+char *_gLoggerLevel[] = { [FLW]="FLW",
+                          [INF]="INF",
                           [LOG]="LOG",
                           [WAR]="WAR",
                           [ERR]="ERR",
@@ -59,6 +60,13 @@ FILE *_gLogFP ;
 #define TIME_STR_LNG 32
 #define SPACE_OFFSET "                                    "
 #define MARKER_OFFSET "= = = = = = = = = = = = = = ="
+
+#define LEV_LSYS_FUNC_ENTRY      FLW
+#define TXT_LSYS_FUNC_ENTRY      "enter function %s() in %s at line %05d"
+
+#define LEV_LSYS_FUNC_EXIT      FLW
+#define TXT_LSYS_FUNC_EXIT      "exit function %s() in %s at line %05d"
+
 
 /******************************************************************************/
 /*   M A C R O S                                                              */
@@ -129,6 +137,36 @@ int loggerFunc( const int   line,  // source file line of the logger macro
   // -------------------------------------------------------
   getLogTime( timeStr ) ;
 
+  if( level == FLW )
+  {
+    char flowBuffer[LOG_BUFFER_LINE_SIZE] ;
+    switch( id )
+    {
+      case LSYS_FUNC_ENTRY :
+      {
+        sprintf( flowBuffer, FLW_LSYS_FUNC_ENTRY, func, file, line ) ;
+        break ;
+      }
+      case LSYS_FUNC_EXIT :
+      {
+        sprintf( flowBuffer, FLW_LSYS_FUNC_EXIT, func, file, line ) ;
+        break ;
+      }
+      default :
+      {
+        break ;
+      }
+    }
+
+    snprintf( lineBuffer, LOG_BUFFER_LINE_SIZE  ,
+                          "%s %6d %05d %s %s\n" ,
+                          timeStr               ,
+                          pid                   ,
+                          id                    ,
+                          _gLoggerLevel[lev]    ,
+                          flowBuffer           );
+  }
+
   // -------------------------------------------------------
   // fill line buffer
   // -------------------------------------------------------
@@ -175,7 +213,9 @@ int loggerFunc( const int   line,  // source file line of the logger macro
   // -------------------------------------------------------
   // dump memory chashe if level critical
   // -------------------------------------------------------
-  if( lev == CRI )
+  if( lev == CRI        ||
+      id  == LSYS_FLOW_DUMP
+     )
   {
     int i ;
 

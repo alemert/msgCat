@@ -23,6 +23,7 @@
 // ---------------------------------------------------------
 // logging levels
 // ---------------------------------------------------------
+#define FLW   9     // flow
 #define INF   8
 #define LOG   7
 #define WAR   6
@@ -38,6 +39,19 @@
 #define DEFAULT_LOG_LEVEL      ERR
 #define LOG_BUFFER_LINE_SIZE   256
 #define LOG_BUFFER_CACHE_SIZE   32
+
+// ---------------------------------------------------------
+// reserved id's
+// ---------------------------------------------------------
+#define     LSYS_FUNC_ENTRY      1
+#define LEV_LSYS_FUNC_ENTRY      FLW
+#define TXT_LSYS_FUNC_ENTRY " "
+
+#define     LSYS_FUNC_EXIT      2
+#define LEV_LSYS_FUNC_EXIT      FLW
+#define TXT_LSYS_FUNC_EXIT " "
+
+#define     LSYS_FLOW_DUMP      99
 
 /******************************************************************************/
 /*   G L O B A L E S                                                          */
