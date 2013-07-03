@@ -49,7 +49,7 @@
 #define TXT_LSTD_ERR_READING_FILE   "error reading file %s" 
 
 #define     LSTD_MEM_ALLOC_ERROR    120
-#define LEV_LSTD_MEM_ALLOC_ERROR    ERR
+#define LEV_LSTD_MEM_ALLOC_ERROR    CRI
 #define TXT_LSTD_MEM_ALLOC_ERROR    "can not allocate memory"
 
 #define     LSTD_INI_SYNTAX_ERROR    200
