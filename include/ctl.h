@@ -38,7 +38,7 @@
 // ---------------------------------------------------------
 #define DEFAULT_LOG_LEVEL      ERR
 #define LOG_BUFFER_LINE_SIZE   256
-#define LOG_BUFFER_CACHE_SIZE   32
+#define LOG_BUFFER_CACHE_SIZE   64
 
 // ---------------------------------------------------------
 // reserved id's
