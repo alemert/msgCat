@@ -223,12 +223,15 @@ int loggerFunc( const int   line,  // source file line of the logger macro
           lineBuffer                          ,
           LOG_BUFFER_LINE_SIZE )              ;
   _sBufferCacheIndex++ ;
+  if( _sBufferCacheIndex > LOG_BUFFER_CACHE_SIZE ) _sBufferCacheIndex = 0 ;
+
   if( dbgBuffer[0] == '\0' )                           
   {
     memcpy( _sBufferCache[_sBufferCacheIndex+1] ,
             dbgBuffer                           ,
             LOG_BUFFER_LINE_SIZE )              ;
     _sBufferCacheIndex++ ;
+    if( _sBufferCacheIndex > LOG_BUFFER_CACHE_SIZE ) _sBufferCacheIndex = 0 ;
   }
 
   // -------------------------------------------------------

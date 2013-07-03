@@ -2,3 +2,4 @@
 002 version 0.2.1 missing TXT_LSYS_FLOW_DUMP LEV_LSYS_FLOW_DUMP
 003 version 0.2.2 fixing bug in 0.2.1, 
                   LSTD_MEM_ALLOC_ERROR level ERR to CRI
+004 version 0.2.3 setting _sBufferCacheIndex to 0 if circular rotation 
