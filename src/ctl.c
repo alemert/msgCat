@@ -61,10 +61,8 @@ FILE *_gLogFP ;
 #define SPACE_OFFSET "                                    "
 #define MARKER_OFFSET "= = = = = = = = = = = = = = ="
 
-#define LEV_LSYS_FUNC_ENTRY     FLW
 #define FLW_LSYS_FUNC_ENTRY     "enter function %s() in %s at line %05d"
 
-#define LEV_LSYS_FUNC_EXIT      FLW
 #define FLW_LSYS_FUNC_EXIT      "exit function %s() in %s at line %05d"
 
 
@@ -176,11 +174,11 @@ int loggerFunc( const int   line,  // source file line of the logger macro
   {
     snprintf( lineBuffer, LOG_BUFFER_LINE_SIZE  ,
                           "%s %6d %05d %s %s\n" ,
-                          timeStr               ,
-                          pid                   ,
-                          id                    ,
-                          _gLoggerLevel[lev]    ,
-                          flowBuffer           );
+                          timeStr               ,  // %s
+                          pid                   ,  // %6d
+                          id                    ,  // %05d 
+                          _gLoggerLevel[lev]    ,  // %s 
+                          flowBuffer           );  // %s
     goto _door ;
   }
 
