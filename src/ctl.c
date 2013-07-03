@@ -61,11 +61,11 @@ FILE *_gLogFP ;
 #define SPACE_OFFSET "                                    "
 #define MARKER_OFFSET "= = = = = = = = = = = = = = ="
 
-#define LEV_LSYS_FUNC_ENTRY      FLW
-#define TXT_LSYS_FUNC_ENTRY      "enter function %s() in %s at line %05d"
+#define LEV_LSYS_FUNC_ENTRY     FLW
+#define FLW_LSYS_FUNC_ENTRY     "enter function %s() in %s at line %05d"
 
 #define LEV_LSYS_FUNC_EXIT      FLW
-#define TXT_LSYS_FUNC_EXIT      "exit function %s() in %s at line %05d"
+#define FLW_LSYS_FUNC_EXIT      "exit function %s() in %s at line %05d"
 
 
 /******************************************************************************/
@@ -114,15 +114,26 @@ int loggerFunc( const int   line,  // source file line of the logger macro
                       int   lev,
                       char* msg)
 {
-  char lineBuffer[LOG_BUFFER_LINE_SIZE] ;           // local line buffer
-  char dbgBuffer[LOG_BUFFER_LINE_SIZE]  ;           // local line buffer(detail)
-  char timeStr[TIME_STR_LNG] ;                      // buffer for time
-                                                    // index for actual line
-  static int  _sBufferCacheIndex = 0 ;              //  in circular cache
-  static char _sBufferCache [LOG_BUFFER_CACHE_SIZE] // cashe for buffering last
-                            [LOG_BUFFER_LINE_SIZE]; // LOG_BUFFER_CACHE_SIZE
-                                                    // lines
-  static int pid = 0 ;                              // pid of the process
+  // -------------------------------------------------------
+  // local buffer for building log message
+  // -------------------------------------------------------
+  char lineBuffer[LOG_BUFFER_LINE_SIZE]; // local line buffer
+  char dbgBuffer[LOG_BUFFER_LINE_SIZE] ; // local line buffer(detail)
+  char flowBuffer[LOG_BUFFER_LINE_SIZE]; // buffer flow for fuction entry/exit
+  char timeStr[TIME_STR_LNG] ;           // buffer for time 
+                                         //
+  // -------------------------------------------------------
+  // static buffer for dumping cashed messages in case of CRI errors
+  // -------------------------------------------------------
+  static char _sBufferCache[LOG_BUFFER_CACHE_SIZE] // circular cache for last 
+                           [LOG_BUFFER_LINE_SIZE]; // LOG_BUFFER_CACHE_SIZE msg
+  static int  _sBufferCacheIndex = 0 ;             // actual line index for 
+                                                   // circular cache
+  // -------------------------------------------------------
+  // other vara
+  // -------------------------------------------------------
+  static int pid = 0  ;      // pid of the process
+         int flowFlag ;      // bool entry / exit func flag
 
   // -------------------------------------------------------
   // get pid only once
@@ -137,27 +148,32 @@ int loggerFunc( const int   line,  // source file line of the logger macro
   // -------------------------------------------------------
   getLogTime( timeStr ) ;
 
-  if( level == FLW )
+  // -------------------------------------------------------
+  // check for function entry / exit 
+  // -------------------------------------------------------
+  flowFlag = 0 ;
+  switch( id )
   {
-    char flowBuffer[LOG_BUFFER_LINE_SIZE] ;
-    switch( id )
+    case LSYS_FUNC_ENTRY :
     {
-      case LSYS_FUNC_ENTRY :
-      {
-        sprintf( flowBuffer, FLW_LSYS_FUNC_ENTRY, func, file, line ) ;
-        break ;
-      }
-      case LSYS_FUNC_EXIT :
-      {
-        sprintf( flowBuffer, FLW_LSYS_FUNC_EXIT, func, file, line ) ;
-        break ;
-      }
-      default :
-      {
-        break ;
-      }
+      flowFlag = 1 ;
+      sprintf( flowBuffer, FLW_LSYS_FUNC_ENTRY, func, file, line ) ;
+      break ;
     }
+    case LSYS_FUNC_EXIT :
+    {
+      flowFlag = 1 ;
+      sprintf( flowBuffer, FLW_LSYS_FUNC_EXIT, func, file, line ) ;
+      break ;
+    }
+    default :
+    {
+      break ;
+    }
+  }
 
+  if( flowFlag )
+  {
     snprintf( lineBuffer, LOG_BUFFER_LINE_SIZE  ,
                           "%s %6d %05d %s %s\n" ,
                           timeStr               ,
@@ -165,6 +181,7 @@ int loggerFunc( const int   line,  // source file line of the logger macro
                           id                    ,
                           _gLoggerLevel[lev]    ,
                           flowBuffer           );
+    goto _door ;
   }
 
   // -------------------------------------------------------
@@ -213,9 +230,8 @@ int loggerFunc( const int   line,  // source file line of the logger macro
   // -------------------------------------------------------
   // dump memory chashe if level critical
   // -------------------------------------------------------
-  if( lev == CRI        ||
-      id  == LSYS_FLOW_DUMP
-     )
+  if( lev == CRI            ||
+      id  == LSYS_FLOW_DUMP  )
   {
     int i ;
 
@@ -232,8 +248,9 @@ int loggerFunc( const int   line,  // source file line of the logger macro
     fprintf(_gLogFP, MARKER_OFFSET "  end log cache dump   " MARKER_OFFSET"\n");
   }
 
+  _door:
+
   fflush( _gLogFP );
-//_door:
   return 0 ;
 }
 
