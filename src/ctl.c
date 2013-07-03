@@ -222,10 +222,14 @@ int loggerFunc( const int   line,  // source file line of the logger macro
   memcpy( _sBufferCache[_sBufferCacheIndex]   ,
           lineBuffer                          ,
           LOG_BUFFER_LINE_SIZE )              ;
-  memcpy( _sBufferCache[_sBufferCacheIndex+1] ,
-          dbgBuffer                           ,
-          LOG_BUFFER_LINE_SIZE )              ;
-  _sBufferCacheIndex+=2 ;
+  _sBufferCacheIndex++ ;
+  if( dbgBuffer[0] == '\0' )                           
+  {
+    memcpy( _sBufferCache[_sBufferCacheIndex+1] ,
+            dbgBuffer                           ,
+            LOG_BUFFER_LINE_SIZE )              ;
+    _sBufferCacheIndex++ ;
+  }
 
   // -------------------------------------------------------
   // dump memory chashe if level critical
