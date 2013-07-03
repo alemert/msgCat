@@ -200,8 +200,6 @@ int loggerFunc( const int   line,  // source file line of the logger macro
                        file                           ,
                        line                          );
 
-  _door_cache:
-
   // -------------------------------------------------------
   // log if neccessary
   // -------------------------------------------------------
@@ -215,6 +213,8 @@ int loggerFunc( const int   line,  // source file line of the logger macro
     fprintf( _gLogFP, "%s", dbgBuffer ) ;
   //printf("%s",dbgBuffer) ;
   }
+
+  _door_cache:
 
   // -------------------------------------------------------
   // fill logger cache
