@@ -203,17 +203,6 @@ int loggerFunc( const int   line,  // source file line of the logger macro
   _door_cache:
 
   // -------------------------------------------------------
-  // fill logger cache
-  // -------------------------------------------------------
-  memcpy( _sBufferCache[_sBufferCacheIndex]   ,
-          lineBuffer                          ,
-          LOG_BUFFER_LINE_SIZE )              ;
-  memcpy( _sBufferCache[_sBufferCacheIndex+1] ,
-          dbgBuffer                           ,
-          LOG_BUFFER_LINE_SIZE )              ;
-  _sBufferCacheIndex+=2 ;
-
-  // -------------------------------------------------------
   // log if neccessary
   // -------------------------------------------------------
   if( _gMaxLevel > lev || lev < MIN_LOG_LEVEL )
@@ -226,6 +215,17 @@ int loggerFunc( const int   line,  // source file line of the logger macro
     fprintf( _gLogFP, "%s", dbgBuffer ) ;
   //printf("%s",dbgBuffer) ;
   }
+
+  // -------------------------------------------------------
+  // fill logger cache
+  // -------------------------------------------------------
+  memcpy( _sBufferCache[_sBufferCacheIndex]   ,
+          lineBuffer                          ,
+          LOG_BUFFER_LINE_SIZE )              ;
+  memcpy( _sBufferCache[_sBufferCacheIndex+1] ,
+          dbgBuffer                           ,
+          LOG_BUFFER_LINE_SIZE )              ;
+  _sBufferCacheIndex+=2 ;
 
   // -------------------------------------------------------
   // dump memory chashe if level critical
