@@ -179,7 +179,7 @@ int loggerFunc( const int   line,  // source file line of the logger macro
                           id                    ,  // %05d 
                           _gLoggerLevel[lev]    ,  // %s 
                           flowBuffer           );  // %s
-    goto _door ;
+    goto _door_cache ;
   }
 
   // -------------------------------------------------------
@@ -225,6 +225,8 @@ int loggerFunc( const int   line,  // source file line of the logger macro
   //printf("%s",dbgBuffer) ;
   }
 
+  _door_cache:
+
   // -------------------------------------------------------
   // dump memory chashe if level critical
   // -------------------------------------------------------
@@ -246,7 +248,9 @@ int loggerFunc( const int   line,  // source file line of the logger macro
     fprintf(_gLogFP, MARKER_OFFSET "  end log cache dump   " MARKER_OFFSET"\n");
   }
 
-  _door:
+#if(0)
+  _door_exit:
+#endif
 
   fflush( _gLogFP );
   return 0 ;
