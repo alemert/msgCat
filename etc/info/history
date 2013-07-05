@@ -5,4 +5,5 @@
 0.1.4 ini message added for INI, catalogrc output format changed
 0.2.0 ini function entry / exit
           forced cahse buffer on LSYS_FLOW_DUMP
+0.2.4 ini macros logFuncCall( ) logFuncExit( ) added
 

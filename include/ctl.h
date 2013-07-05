@@ -89,6 +89,9 @@
               LEV_##id     ,                      \
               _gLoggerBuffer )
 
+#define logFuncCall( ) logger( LSYS_FUNC_ENTRY ) 
+#define logFuncExit( ) logger( LSYS_FUNC_EXIT  ) 
+
 /******************************************************************************/
 /*   P R O T O T Y P E S                                                      */
 /******************************************************************************/
