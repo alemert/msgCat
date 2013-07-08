@@ -32,7 +32,7 @@
 #define LEV_LMQM_LOG_CALL     LOG
 #define TXT_LMQM_LOG_CALL     "logging mq call %s with: %s"
 
-#define     LMQM_WAR_CALL     1100
-#define LEV_LMQM_WAR_CALL     INF
-#define TXT_LMQM_WAR_CALL     "logging mq call %s with: %s"
+#define     LMQM_INF_CALL     1100
+#define LEV_LMQM_INF_CALL     INF
+#define TXT_LMQM_INF_CALL     "logging mq call %s with: %s"
 
