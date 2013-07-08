@@ -16,14 +16,23 @@
 /******************************************************************************/
 /*   D E F I N E S                                                            */
 /******************************************************************************/
-#define     LMQM_CONNECTED     1100
-#define LEV_LMQM_CONNECTED      LOG
-#define TXT_LMQM_CONNECTED      "connected to queue manager %s"
+#define     LMQM_CRI_CALL     1100
+#define LEV_LMQM_CRI_CALL     CRI
+#define TXT_LMQM_CRI_CALL     "mq call %s failed with: %s"
 
-#define     LMQM_DISCONNECTED  1101
-#define LEV_LMQM_DISCONNECTED   LOG
-#define TXT_LMQM_DISCONNECTED   "disconnected to queue manager %s"
+#define     LMQM_ERR_CALL     1100
+#define LEV_LMQM_ERR_CALL     ERR
+#define TXT_LMQM_ERR_CALL     "mq call %s failed with: %s"
 
-#define     LMQM_CONNECT_ERR   1100
-#define LEV_LMQM_CONNECT_ERR    LOG
-#define TXT_LMQM_CONNECT_ERR    "connectto queue manager %s failed"
+#define     LMQM_WAR_CALL     1100
+#define LEV_LMQM_WAR_CALL     WAR
+#define TXT_LMQM_WAR_CALL     "mq warning for call %s with: %s"
+
+#define     LMQM_LOG_CALL     1100
+#define LEV_LMQM_LOG_CALL     LOG
+#define TXT_LMQM_LOG_CALL     "logging mq call %s with: %s"
+
+#define     LMQM_WAR_CALL     1100
+#define LEV_LMQM_WAR_CALL     INF
+#define TXT_LMQM_WAR_CALL     "logging mq call %s with: %s"
+
