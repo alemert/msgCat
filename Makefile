@@ -59,6 +59,8 @@ $(CAT_SRC_PATH)/catalogrc.c : $(CATALOG.H)
 $(CAT_OBJ_PATH)/catalogrc.o : $(CAT_SRC_PATH)/catalogrc.c $(MAKEFILE)
 	$(CC) $(CCOPT) $< -o $@
 
+cleanlocal :
+
 # ------------------------------------------------------------------------------
 # tests
 # ------------------------------------------------------------------------------
