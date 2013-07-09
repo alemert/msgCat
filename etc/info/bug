@@ -4,3 +4,4 @@
                   LSTD_MEM_ALLOC_ERROR level ERR to CRI
 004 version 0.2.3 setting _sBufferCacheIndex to 0 if circular rotation 
 005 version 0.2.6 bug in lgmqm.h ( all defines with same nr)
+005 version 0.2.7 bug in ctl.c comp _gMaxLevel > lev

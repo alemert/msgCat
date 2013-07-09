@@ -203,7 +203,7 @@ int loggerFunc( const int   line,  // source file line of the logger macro
   // -------------------------------------------------------
   // log if neccessary
   // -------------------------------------------------------
-  if( _gMaxLevel > lev || lev < MIN_LOG_LEVEL )
+  if( _gMaxLevel >= lev || lev < MIN_LOG_LEVEL )
   {
     fprintf( _gLogFP, "%s", lineBuffer ) ;
   }
