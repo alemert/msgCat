@@ -23,13 +23,14 @@
 // ---------------------------------------------------------
 // logging levels
 // ---------------------------------------------------------
-#define FLW   9     // flow
-#define INF   8
-#define LOG   7
-#define WAR   6
-#define ERR   5
-#define CRI   1
-#define SYS   0
+#define FLW  10            // flow
+#define DBG   9            // debugger (dumps)
+#define INF   8            // information (incl source lines)
+#define LOG   7            // log (without source lines)
+#define WAR   6            // warning
+#define ERR   5            // error
+#define CRI   1            // critical (abort program)
+#define SYS   0            // system (base program information)
 
 #define MIN_LOG_LEVEL 2    // every level less then this 
                            //  will be logged in any case

@@ -321,6 +321,21 @@ void getLogTime( char *timeStr )
                      localTime         ) ;
 }
 
+/******************************************************************************/
+/*  dumper function                                                           */
+/*                                                                            */
+/*  name:                                                                     */
+/*    dumpFunc                                                                */
+/*  attributes:                                                               */
+/*    line : nr of the source line (set in logger macro)                      */
+/*    file : source file name      (set in logger macro)                      */
+/*    func : function name         (set in logger macro)                      */
+/*    msg  : message               (list of key,value )      */
+/******************************************************************************/
+int dumpFunc( const int    line,  // source file line of the logger macro
+              const char*  file,  // source file name of the logger macro
+              const char*  func,  // source file function of the logger macro
+                    char** msg )  // message to be dumped
+{
 
-
-
+}
