@@ -102,8 +102,16 @@ int loggerFunc( const int   line,
                       int   id,
                       int   lev,
                       char* msg) ;
+
+int dumpFunc( const int    _line  ,  
+              const char*  _file  ,
+              const char*  _func  , 
+                    char*  _offset,  
+                    char** _msg  );
+
 #if( 0 )
 void setMaxLogLevel( int maxLevel ) ;
 int  setLogFileName( const char* name ) ;
 #endif
 int initLogging( const char* logName, int logLevel ) ;
+

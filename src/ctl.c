@@ -65,6 +65,8 @@ FILE *_gLogFP ;
 
 #define FLW_LSYS_FUNC_EXIT      "exit function %s() in %s at line %05d"
 
+#define DUMP_KEY_FORMAT  "%-20.20s"
+#define DUMP_VAL_FORMAT  "%-20.20s"
 
 /******************************************************************************/
 /*   M A C R O S                                                              */
@@ -327,15 +329,47 @@ void getLogTime( char *timeStr )
 /*  name:                                                                     */
 /*    dumpFunc                                                                */
 /*  attributes:                                                               */
-/*    line : nr of the source line (set in logger macro)                      */
-/*    file : source file name      (set in logger macro)                      */
-/*    func : function name         (set in logger macro)                      */
-/*    msg  : message               (list of key,value )      */
+/*    line   : nr of the source line (set in logger macro)                    */
+/*    file   : source file name      (set in logger macro)                    */
+/*    func   : function name         (set in logger macro)                    */
+/*    offset : offset to value                                                */
+/*    msg  : message                 (list of key,value )                     */
 /******************************************************************************/
-int dumpFunc( const int    line,  // source file line of the logger macro
-              const char*  file,  // source file name of the logger macro
-              const char*  func,  // source file function of the logger macro
-                    char** msg )  // message to be dumped
+int dumpFunc( const int    _line  ,  // source file line of the logger macro
+              const char*  _file  ,  // source file name of the logger macro
+              const char*  _func  ,  // source file function of the logger macro
+                    char*  _offset,  // offset to value
+                    char** _msg   )  // message to be dumped
 {
+  int sysRc ;
 
+  char *line ;
+
+  line = *_msg ;
+
+  if( _gLogFP == NULL )
+  {
+    _gLogFP = stdin ;
+  }
+
+  while( 1 )
+  {
+    if( line == NULL ) break ;
+
+    if( (line+1) == NULL )
+    {
+      sysRc = 1 ;
+      goto _door ;
+    } 
+    printf( "%s"DUMP_KEY_FORMAT":"
+                DUMP_VAL_FORMAT"\n",
+                _offset,
+                line,
+                (line+1) ) ;
+    line += 2 ;
+  }
+
+  _door :
+
+  return sysRc ;
 }

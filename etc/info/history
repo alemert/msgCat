@@ -7,4 +7,4 @@
           forced cahse buffer on LSYS_FLOW_DUMP
 0.2.4 ini macros logFuncCall( ) logFuncExit( ) added
 0.2.5 new mq logging library
-
+0.3.0 dump function added
