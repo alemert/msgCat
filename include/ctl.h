@@ -113,5 +113,6 @@ int dumpFunc( const int    _line  ,
 void setMaxLogLevel( int maxLevel ) ;
 int  setLogFileName( const char* name ) ;
 #endif
-int initLogging( const char* logName, int logLevel ) ;
 
+int initLogging( const char* logName, int logLevel ) ;
+FILE* getLogFP() ;
