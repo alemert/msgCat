@@ -93,11 +93,11 @@
 #define logFuncCall( ) logger( LSYS_FUNC_ENTRY ) 
 #define logFuncExit( ) logger( LSYS_FUNC_EXIT  ) 
 
-#define dumper( offset, msg )   dumpFunc( __LINE__   , \
-                                          ___FILE___ , \
-                                          __FUNC__   , \
-                                          offset     , \
-                                          msg        ) ;
+#define dumper( offset, msg )   dumpFunc( __LINE__ , \
+                                          __FILE__ , \
+                                          __FUNC__ , \
+                                          offset   , \
+                                          msg      ) ;
 
 /******************************************************************************/
 /*   P R O T O T Y P E S                                                      */
