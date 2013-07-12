@@ -364,7 +364,8 @@ int dumpFunc(const int   _line              , // src file line of dumper macro
 
   while( 1 )
   {
-    if( line == NULL ) break ;
+    if(  line == NULL ) break ;
+    if( *line == '\0' ) break ;
 
     if( (line+1) == NULL )
     {
