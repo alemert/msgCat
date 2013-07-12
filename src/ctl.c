@@ -353,31 +353,27 @@ int dumpFunc(const int   _line              , // src file line of dumper macro
 {
   int sysRc ;
 
-  char **line ;
-
-  line = _msg ;
+  int i ;
 
   if( _gLogFP == NULL )
   {
     _gLogFP = stdin ;
   }
 
-  while( 1 )
+  for( i=0; _msg[i][0]!= '\0'; i+=2 )
   {
-    if(  line == NULL ) break ;
-    if( *line == '\0' ) break ;
+    if(  _msg[i] == NULL ) break ;
 
-    if( (line+1) == NULL )
+    if( _msg[i+1] == NULL )
     {
       sysRc = 1 ;
       goto _door ;
     } 
     printf( "%s"DUMP_KEY_FORMAT":"
                 DUMP_VAL_FORMAT"\n",
-                _offset,
-                line,
-                (line+1) ) ;
-    line += 2 ;
+                _offset  ,
+                _msg[i]  ,
+                _msg[i+1] ) ;
   }
 
   _door :
