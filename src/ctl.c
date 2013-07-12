@@ -8,9 +8,9 @@
 /*   - loggerFunc                                                             */
 /*   - setMaxLogLevel                                                         */
 /*   - setLogFileName                                                         */
-/*   - getLogFP                  */
+/*   - getLogFP                                                      */
 /*   - getLogTime                                                             */
-/*   - dumpFunc                          */
+/*   - dumpFunc                                                      */
 /*                                                                            */
 /******************************************************************************/
 
@@ -314,7 +314,7 @@ _door :
 }
 
 /******************************************************************************/
-/* get log file pointer                  */
+/* get log file pointer                                                */
 /******************************************************************************/
 FILE* getLogFP()
 {
@@ -392,7 +392,7 @@ int dumpFunc(const int   _line              , // src file line of dumper macro
     // -----------------------------------------------------
     if( _gMaxLevel >= DBG ) 
     {
-      fprintf( _gLogFP, "%s\n", buff ) ;
+      fprintf( _gLogFP, "%s", buff ) ;
     }
 
     // -----------------------------------------------------
