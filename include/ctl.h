@@ -41,6 +41,8 @@
 #define LOG_BUFFER_LINE_SIZE   256
 #define LOG_BUFFER_CACHE_SIZE  512
 
+#define DMP_ITEM_LEN           50
+
 // ---------------------------------------------------------
 // reserved id's
 // ---------------------------------------------------------
@@ -102,18 +104,18 @@
 /******************************************************************************/
 /*   P R O T O T Y P E S                                                      */
 /******************************************************************************/
-int loggerFunc( const int   line,
-                const char* file,
-                const char* func,
-                      int   id,
-                      int   lev,
-                      char* msg) ;
+int loggerFunc( const int   line  ,
+                const char* file  ,
+                const char* func  ,
+                      int   id    ,
+                      int   lev   ,
+                      char* msg ) ;
 
-int dumpFunc( const int    _line  ,  
-              const char*  _file  ,
-              const char*  _func  , 
-                    char*  _offset,  
-                    char*  _msg[]  );
+int dumpFunc( const int    _line              ,  
+              const char*  _file              ,
+              const char*  _func              ,
+                    char*  _offset            ,  
+                    char*  _msg[DMP_ITEM_LEN] ) ;
 
 #if( 0 )
 void setMaxLogLevel( int maxLevel ) ;

@@ -5,3 +5,4 @@
 004 version 0.2.3 setting _sBufferCacheIndex to 0 if circular rotation 
 005 version 0.2.6 bug in lgmqm.h ( all defines with same nr)
 005 version 0.2.7 bug in ctl.c comp _gMaxLevel > lev
+006 version 0.3.3 prototype of dumpFunc changed from (char**) to *char[50]
