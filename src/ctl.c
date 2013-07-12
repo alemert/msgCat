@@ -358,11 +358,21 @@ int dumpFunc( char* _offset             ,   // print offset to value
   int i ;
 
   char buff[DMP_ITEM_LEN*2+1] ;
+  char separator[DMP_ITEM_LEN*2+1] ;
 
   if( _gLogFP == NULL )
   {
     _gLogFP = stdin ;
   }
+
+  snprintf( separator,  LOG_BUFFER_LINE_SIZE, 
+                        "%s"DUMP_KEY_FORMAT":"
+                         DUMP_VAL_FORMAT"\n",
+                        _offset             ,
+                        "=========================================" ,
+                        "=========================================" ) ;
+
+  if( _gMaxLevel >= DBG ) { fprintf( _gLogFP, "%s", separator ) ; }
 
   // -------------------------------------------------------
   // print out all items
@@ -398,12 +408,19 @@ int dumpFunc( char* _offset             ,   // print offset to value
     // set circular buffer
     // -----------------------------------------------------
     memcpy( _gBufferCache[_gBufferCacheIndex] ,
-            buff                              ,
+            separator                         ,
             LOG_BUFFER_LINE_SIZE )            ;
     _gBufferCacheIndex++ ;
 
     if( _gBufferCacheIndex > LOG_BUFFER_CACHE_SIZE ) _gBufferCacheIndex = 0 ;
   }
+
+  memcpy( _gBufferCache[_gBufferCacheIndex] ,
+          buff                              ,
+          LOG_BUFFER_LINE_SIZE )            ;
+  _gBufferCacheIndex++ ;
+
+  if( _gBufferCacheIndex > LOG_BUFFER_CACHE_SIZE ) _gBufferCacheIndex = 0 ;
 
   _door :
 
