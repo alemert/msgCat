@@ -349,7 +349,7 @@ int dumpFunc( const int    _line  ,  // source file line of the logger macro
               const char*  _file  ,  // source file name of the logger macro
               const char*  _func  ,  // source file function of the logger macro
                     char*  _offset,  // offset to value
-                    char** _msg   )  // message to be dumped
+                    char*  _msg[]   )  // message to be dumped
 {
   int sysRc ;
 
