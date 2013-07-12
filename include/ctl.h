@@ -115,7 +115,7 @@ int dumpFunc( const int    _line              ,
               const char*  _file              ,
               const char*  _func              ,
                     char*  _offset            ,  
-                    char*  _msg[DMP_ITEM_LEN] ) ;
+                    char   _msg[][DMP_ITEM_LEN] ) ;
 
 #if( 0 )
 void setMaxLogLevel( int maxLevel ) ;
