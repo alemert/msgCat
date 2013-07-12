@@ -345,11 +345,11 @@ void getLogTime( char *timeStr )
 /*    offset : offset to value                                                */
 /*    msg  : message                 (list of key,value )                     */
 /******************************************************************************/
-int dumpFunc( const int    _line  ,  // source file line of the logger macro
-              const char*  _file  ,  // source file name of the logger macro
-              const char*  _func  ,  // source file function of the logger macro
-                    char*  _offset,  // offset to value
-                    char*  _msg[]   )  // message to be dumped
+int dumpFunc(const int   _line              , // src file line of dumper macro
+             const char* _file              , // src file name of dumper macro
+             const char* _func              , // caller function of dumper macro
+                   char* _offset            , // print offset to value
+                   char* _msg[DMP_ITEM_LEN] ) // message to be dumped
 {
   int sysRc ;
 
