@@ -355,11 +355,16 @@ int dumpFunc(const int   _line              , // src file line of dumper macro
 
   int i ;
 
+  char buff[DMP_ITEM_LEN*2+1] ;
+
   if( _gLogFP == NULL )
   {
     _gLogFP = stdin ;
   }
 
+  // -------------------------------------------------------
+  // print out all items
+  // -------------------------------------------------------
   for( i=0; _msg[i][0]!= '\0'; i+=2 )
   {
     if(  _msg[i] == NULL ) break ;
@@ -369,14 +374,37 @@ int dumpFunc(const int   _line              , // src file line of dumper macro
       sysRc = 1 ;
       goto _door ;
     } 
-    fprintf( _gLogFP, "%s"DUMP_KEY_FORMAT":"
-                          DUMP_VAL_FORMAT"\n",
-                          _offset            ,
-                          _msg[i]            ,
-                          _msg[i+1]        ) ;
+
+    // -----------------------------------------------------
+    // build buffer
+    // -----------------------------------------------------
+    snprintf( buff, LOG_BUFFER_LINE_SIZE, "%s"DUMP_KEY_FORMAT":"
+                                           DUMP_VAL_FORMAT"\n",
+                                           _offset            ,
+                                           _msg[i]            ,
+                                           _msg[i+1]        ) ;
+
+    // -----------------------------------------------------
+    // write flow and dbg if level high enought
+    // -----------------------------------------------------
+    if( _gMaxLevel >= DBG ) 
+    {
+      fprintf( _gLogFP, "%s\n", buff ) ;
+    }
+
+    // -----------------------------------------------------
+    // set circular buffer
+    // -----------------------------------------------------
+    memcpy( _sBufferCache[_sBufferCacheIndex]   ,
+            lineBuffer                          ,
+            LOG_BUFFER_LINE_SIZE )              ;
+    _sBufferCacheIndex++ ;
+
+    if( _sBufferCacheIndex > LOG_BUFFER_CACHE_SIZE ) _sBufferCacheIndex = 0 ;
   }
 
   _door :
 
   return sysRc ;
 }
+
