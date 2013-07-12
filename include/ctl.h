@@ -54,9 +54,14 @@
 #define LEV_LSYS_FUNC_EXIT    FLW
 #define TXT_LSYS_FUNC_EXIT    " "
 
-#define     LSYS_FLOW_DUMP     99
-#define LEV_LSYS_FLOW_DUMP    FLW
-#define TXT_LSYS_FLOW_DUMP    " " 
+#define     LSYS_DUMP_START    5
+#define LEV_LSYS_DUMP_START   DBG
+#define TXT_LSYS_DUMP_START   "Memory dump start for %s"
+
+#define     LSYS_DUMP_END      5
+#define LEV_LSYS_DUMP_END     DBG
+#define TXT_LSYS_DUMP_END     "Memory dump start for %s"
+
 
 /******************************************************************************/
 /*   G L O B A L E S                                                          */
@@ -104,11 +109,12 @@
 #define logFuncCall( ) logger( LSYS_FUNC_ENTRY ) 
 #define logFuncExit( ) logger( LSYS_FUNC_EXIT  ) 
 
-#define dumper( offset, msg )   dumpFunc( __LINE__     , \
-                                          __FILE__     , \
-                                          __FUNCTION__ , \
-                                          offset       , \
-                                          msg          ) ;
+#define dumper( offset, comment, msg )   \
+{                                        \
+  logger(   LSYS_DUMP_START, comment ) ; \
+  dumpFunc( offset         , msg     ) ; \
+  logger(   LSYS_DUMP_END  , comment ) ; \
+}
 
 /******************************************************************************/
 /*   P R O T O T Y P E S                                                      */
@@ -120,11 +126,7 @@ int loggerFunc( const int   line  ,
                       int   lev   ,
                       char* msg ) ;
 
-int dumpFunc( const int    _line              ,  
-              const char*  _file              ,
-              const char*  _func              ,
-                    char*  _offset            ,  
-                    char   _msg[][DMP_ITEM_LEN] ) ;
+int dumpFunc( char* _offset, char _msg[][DMP_ITEM_LEN] ) ;
 
 #if( 0 )
 void setMaxLogLevel( int maxLevel ) ;

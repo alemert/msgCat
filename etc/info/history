@@ -10,3 +10,4 @@
 0.3.0 dump function added
 0.3.1 getLogFP added
 0.3.2 dump macro added
+0.3.6 dumpFunc prototype changed
