@@ -65,6 +65,15 @@
 
   char _gLoggerBuffer[LOG_BUFFER_LINE_SIZE] ;
 
+  // -------------------------------------------------------
+  // global circular buffer for dumping cashed messages in case of CRI errors
+  // -------------------------------------------------------
+  static char _gBufferCache[LOG_BUFFER_CACHE_SIZE] // circular cache for last
+                           [LOG_BUFFER_LINE_SIZE]; // LOG_BUFFER_CACHE_SIZE msg
+  static int  _gBufferCacheIndex = 0 ;             // actual line index for
+                                                   // circular cache
+
+
 #else
 
   extern char _gLoggerBuffer[] ;

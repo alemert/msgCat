@@ -124,6 +124,7 @@ int loggerFunc( const int   line,  // source file line of the logger macro
   char flowBuffer[LOG_BUFFER_LINE_SIZE]; // buffer flow for fuction entry/exit
   char timeStr[TIME_STR_LNG] ;           // buffer for time 
                                          //
+  #if(0)
   // -------------------------------------------------------
   // static buffer for dumping cashed messages in case of CRI errors
   // -------------------------------------------------------
@@ -131,6 +132,8 @@ int loggerFunc( const int   line,  // source file line of the logger macro
                            [LOG_BUFFER_LINE_SIZE]; // LOG_BUFFER_CACHE_SIZE msg
   static int  _sBufferCacheIndex = 0 ;             // actual line index for 
                                                    // circular cache
+  #endif
+
   // -------------------------------------------------------
   // other vara
   // -------------------------------------------------------
@@ -223,19 +226,19 @@ int loggerFunc( const int   line,  // source file line of the logger macro
   // -------------------------------------------------------
   // fill logger cache
   // -------------------------------------------------------
-  memcpy( _sBufferCache[_sBufferCacheIndex]   ,
+  memcpy( _gBufferCache[_gBufferCacheIndex]   ,
           lineBuffer                          ,
           LOG_BUFFER_LINE_SIZE )              ;
-  _sBufferCacheIndex++ ;
-  if( _sBufferCacheIndex > LOG_BUFFER_CACHE_SIZE ) _sBufferCacheIndex = 0 ;
+  _gBufferCacheIndex++ ;
+  if( _gBufferCacheIndex > LOG_BUFFER_CACHE_SIZE ) _gBufferCacheIndex = 0 ;
 
   if( dbgBuffer[0] == '\0' )                           
   {
-    memcpy( _sBufferCache[_sBufferCacheIndex+1] ,
+    memcpy( _gBufferCache[_gBufferCacheIndex+1] ,
             dbgBuffer                           ,
             LOG_BUFFER_LINE_SIZE )              ;
-    _sBufferCacheIndex++ ;
-    if( _sBufferCacheIndex > LOG_BUFFER_CACHE_SIZE ) _sBufferCacheIndex = 0 ;
+    _gBufferCacheIndex++ ;
+    if( _gBufferCacheIndex > LOG_BUFFER_CACHE_SIZE ) _gBufferCacheIndex = 0 ;
   }
 
   // -------------------------------------------------------
@@ -247,14 +250,14 @@ int loggerFunc( const int   line,  // source file line of the logger macro
     int i ;
 
     fprintf(_gLogFP,MARKER_OFFSET "  begin log cache dump " MARKER_OFFSET "\n");
-    for( i=_sBufferCacheIndex; i<LOG_BUFFER_CACHE_SIZE; i++ )
+    for( i=_gBufferCacheIndex; i<LOG_BUFFER_CACHE_SIZE; i++ )
     {
-      fprintf( _gLogFP, "%s", _sBufferCache[i] ) ;
+      fprintf( _gLogFP, "%s", _gBufferCache[i] ) ;
     }
 
-    for( i=0; i<_sBufferCacheIndex; i++ )
+    for( i=0; i<_gBufferCacheIndex; i++ )
     {
-      fprintf( _gLogFP, "%s", _sBufferCache[i] ) ;
+      fprintf( _gLogFP, "%s", _gBufferCache[i] ) ;
     }
     fprintf(_gLogFP, MARKER_OFFSET "  end log cache dump   " MARKER_OFFSET"\n");
   }
@@ -395,12 +398,12 @@ int dumpFunc(const int   _line              , // src file line of dumper macro
     // -----------------------------------------------------
     // set circular buffer
     // -----------------------------------------------------
-    memcpy( _sBufferCache[_sBufferCacheIndex]   ,
-            lineBuffer                          ,
-            LOG_BUFFER_LINE_SIZE )              ;
-    _sBufferCacheIndex++ ;
+    memcpy( _gBufferCache[_gBufferCacheIndex] ,
+            buff                              ,
+            LOG_BUFFER_LINE_SIZE )            ;
+    _gBufferCacheIndex++ ;
 
-    if( _sBufferCacheIndex > LOG_BUFFER_CACHE_SIZE ) _sBufferCacheIndex = 0 ;
+    if( _gBufferCacheIndex > LOG_BUFFER_CACHE_SIZE ) _gBufferCacheIndex = 0 ;
   }
 
   _door :
