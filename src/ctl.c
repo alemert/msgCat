@@ -359,7 +359,10 @@ int dumpFunc( char* _offset             ,   // print offset to value
 
   char buff[DMP_ITEM_LEN*2+1] ;
   char separator[DMP_ITEM_LEN*2+1] ;
-
+  
+  // -------------------------------------------------------
+  // init 
+  // -------------------------------------------------------
   if( _gLogFP == NULL )
   {
     _gLogFP = stdin ;
@@ -414,6 +417,11 @@ int dumpFunc( char* _offset             ,   // print offset to value
 
     if( _gBufferCacheIndex > LOG_BUFFER_CACHE_SIZE ) _gBufferCacheIndex = 0 ;
   }
+
+  // -------------------------------------------------------
+  // haus keeping
+  // -------------------------------------------------------
+  if( _gMaxLevel >= DBG ) { fprintf( _gLogFP, "%s", separator ) ; }
 
   memcpy( _gBufferCache[_gBufferCacheIndex] ,
           buff                              ,
