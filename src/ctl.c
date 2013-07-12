@@ -353,9 +353,9 @@ int dumpFunc(const int   _line              , // src file line of dumper macro
 {
   int sysRc ;
 
-  char *line ;
+  char **line ;
 
-  line = *_msg ;
+  line = _msg ;
 
   if( _gLogFP == NULL )
   {
