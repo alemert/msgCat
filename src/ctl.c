@@ -369,11 +369,11 @@ int dumpFunc(const int   _line              , // src file line of dumper macro
       sysRc = 1 ;
       goto _door ;
     } 
-    printf( "%s"DUMP_KEY_FORMAT":"
-                DUMP_VAL_FORMAT"\n",
-                _offset  ,
-                _msg[i]  ,
-                _msg[i+1] ) ;
+    fprintf( _gLogFP, "%s"DUMP_KEY_FORMAT":"
+                          DUMP_VAL_FORMAT"\n",
+                          _offset            ,
+                          _msg[i]            ,
+                          _msg[i+1]        ) ;
   }
 
   _door :
