@@ -11,3 +11,4 @@
 0.3.1 getLogFP added
 0.3.2 dump macro added
 0.3.6 dumpFunc prototype changed
+0.3.7 message LMQM_UNKNOWN_DMP_STR added
