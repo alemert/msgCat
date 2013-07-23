@@ -36,7 +36,7 @@
 #define LEV_LMQM_INF_CALL     INF
 #define TXT_LMQM_INF_CALL     "logging mq call %s with: %s"
 
-#define     LMQM_UNKNOWN_DMP_STR  1110
-#define LEV_LMQM_UNKNOWN_DMP_STR  ERR
-#define TXT_LMQM_UNKNOWN_DMP_STR  "unknown dump struct %4s"
+#define     LMQM_UNKNOWN_DMP_STRUCT  1110
+#define LEV_LMQM_UNKNOWN_DMP_STRUCT  ERR
+#define TXT_LMQM_UNKNOWN_DMP_STRUCT  "unknown dump struct %4s"
 
