@@ -12,3 +12,4 @@
 0.3.2 dump macro added
 0.3.6 dumpFunc prototype changed
 0.3.7 message LMQM_UNKNOWN_DMP_STR added
+0.3.8 DUMP_KEY_FORMAT and DUMP_VAL_FORMAT incr to 30
