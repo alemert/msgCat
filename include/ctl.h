@@ -58,9 +58,9 @@
 #define LEV_LSYS_DUMP_START   DBG
 #define TXT_LSYS_DUMP_START   "Memory dump start for %s"
 
-#define     LSYS_DUMP_END      5
+#define     LSYS_DUMP_END      6
 #define LEV_LSYS_DUMP_END     DBG
-#define TXT_LSYS_DUMP_END     "Memory dump start for %s"
+#define TXT_LSYS_DUMP_END     "Memory dump end for %s"
 
 
 /******************************************************************************/
