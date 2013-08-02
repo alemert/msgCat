@@ -1,15 +1,16 @@
-0.1.0 first working version
-0.1.1 ini messages added
-0.1.2 ini message added for INI
-0.1.3 ini message added for INI
-0.1.4 ini message added for INI, catalogrc output format changed
-0.2.0 ini function entry / exit
-          forced cahse buffer on LSYS_FLOW_DUMP
-0.2.4 ini macros logFuncCall( ) logFuncExit( ) added
-0.2.5 new mq logging library
-0.3.0 dump function added
-0.3.1 getLogFP added
-0.3.2 dump macro added
-0.3.6 dumpFunc prototype changed
-0.3.7 message LMQM_UNKNOWN_DMP_STR added
-0.3.8 DUMP_KEY_FORMAT and DUMP_VAL_FORMAT incr to 30
+0.1.0  first working version
+0.1.1  ini messages added
+0.1.2  ini message added for INI
+0.1.3  ini message added for INI
+0.1.4  ini message added for INI, catalogrc output format changed
+0.2.0  ini function entry / exit
+           forced cahse buffer on LSYS_FLOW_DUMP
+0.2.4  ini macros logFuncCall( ) logFuncExit( ) added
+0.2.5  new mq logging library
+0.3.0  dump function added
+0.3.1  getLogFP added
+0.3.2  dump macro added
+0.3.6  dumpFunc prototype changed
+0.3.7  message LMQM_UNKNOWN_DMP_STR added
+0.3.8  DUMP_KEY_FORMAT and DUMP_VAL_FORMAT incr to 30
+0.3.10 LMQM_DBG_CALL added
