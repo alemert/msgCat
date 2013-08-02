@@ -36,9 +36,9 @@
 #define LEV_LMQM_INF_CALL     INF
 #define TXT_LMQM_INF_CALL     "logging mq call %s with: %s"
 
-#define     LMQM_INF_CALL     1105
-#define LEV_LMQM_INF_CALL     DBG
-#define TXT_LMQM_INF_CALL     "logging mq call %s with: %s"
+#define     LMQM_DBG_CALL     1105
+#define LEV_LMQM_DBG_CALL     DBG
+#define TXT_LMQM_DBG_CALL     "logging mq call %s with: %s"
 
 #define     LMQM_UNKNOWN_DMP_STRUCT  1110
 #define LEV_LMQM_UNKNOWN_DMP_STRUCT  ERR
