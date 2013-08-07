@@ -2,6 +2,9 @@
 /*       l o g g e r   s t a n d a r d   m e s s a g e   c a t a l o g        */
 /******************************************************************************/
 
+#indef _LG_XYM_CAT_
+#define _LG_XYM_CAT_
+
 /******************************************************************************/
 /*   I N C L U D E S                                                          */
 /******************************************************************************/
@@ -32,3 +35,4 @@
 #define LEV_LXYM_NO_RECIPIENT  ERR
 #define TXT_LXYM_NO_RECIPIENT  "no recipients listed, XMSRV was %s, XMSERVERS was %s"
 
+#endif

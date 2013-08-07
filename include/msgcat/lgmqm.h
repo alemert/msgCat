@@ -2,6 +2,9 @@
 /*       l o g g e r   s t a n d a r d   m e s s a g e   c a t a l o g        */
 /******************************************************************************/
 
+#indef  _LG_MQM_CAT_
+#define _LG_MQM_CAT_
+
 /******************************************************************************/
 /*   I N C L U D E S                                                          */
 /******************************************************************************/
@@ -48,3 +51,4 @@
 #define LEV_LMQM_UNKNOWN_DMP_STRUCT  ERR
 #define TXT_LMQM_UNKNOWN_DMP_STRUCT  "unknown dump struct %4s"
 
+#endif

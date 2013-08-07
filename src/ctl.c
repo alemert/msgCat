@@ -8,9 +8,10 @@
 /*   - loggerFunc                                                             */
 /*   - setMaxLogLevel                                                         */
 /*   - setLogFileName                                                         */
-/*   - getLogFP                                                      */
+/*   - getLogFP                                                               */
 /*   - getLogTime                                                             */
-/*   - dumpFunc                                                      */
+/*   - dumpFunc                                                               */
+/*   - textornull                              */
 /*                                                                            */
 /******************************************************************************/
 
@@ -433,5 +434,17 @@ int dumpFunc( char* _offset             ,   // print offset to value
   _door :
 
   return sysRc ;
+}
+
+/******************************************************************************/
+/*  text or null                                                              */
+/*                                                                            */
+/*  description:                                                              */
+/*    if a string (char*) to be logged is NULL,                               */
+/*      it should be replaced by text "NULL"                                  */
+/******************************************************************************/
+const char* textornull( char *text )
+{
+  return (text ? text : "(NULL)");
 }
 
