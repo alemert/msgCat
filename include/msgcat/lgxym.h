@@ -39,6 +39,14 @@
 #define LEV_LXYM_RECONNECT       INF
 #define TXT_LXYM_RECONNECT       "reconnect to adress %s port %d"
 
+#define     LXYM_CONNECT_ERROR   2013
+#define LEV_LXYM_CONNECT_ERROR   WAR
+#define TXT_LXYM_CONNECT_ERROR   "connect to Xymon daemon@%s:%d failed (%s)"
+
+#define     LXYM_SEND_ERROR     2014
+#define LEV_LXYM_SEND_ERROR     WAR
+#define TXT_LXYM_SEND_ERROR     "Select failure while sending to Xymon daemon@%s:%d"
+
 #define     LXYM_RECIPIENT_LIST  2015
 #define LEV_LXYM_RECIPIENT_LIST  DBG
 #define TXT_LXYM_RECIPIENT_LIST  "recipient listed as %s"
