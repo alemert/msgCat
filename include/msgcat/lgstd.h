@@ -52,6 +52,10 @@
 #define LEV_LSTD_MEM_ALLOC_ERROR    CRI
 #define TXT_LSTD_MEM_ALLOC_ERROR    "can not allocate memory"
 
+#define     LSTD_FREE_NULL_ERROR    121
+#define LEV_LSTD_FREE_NULL_ERROR    ERR
+#define TXT_LSTD_FREE_NULL_ERROR    "free call on NULL pointer"
+
 #define     LSTD_INI_SYNTAX_ERROR    200
 #define LEV_LSTD_INI_SYNTAX_ERROR    ERR
 #define TXT_LSTD_INI_SYNTAX_ERROR    "ini file syntax error near %s" 
