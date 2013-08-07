@@ -15,3 +15,4 @@
 0.3.8  DUMP_KEY_FORMAT and DUMP_VAL_FORMAT incr to 30
 0.3.10 LMQM_DBG_CALL added
 0.3.11 LMQM_INCR_MSG_BUFF addeed
+0.4.00 lgxym catalog added for xymon
