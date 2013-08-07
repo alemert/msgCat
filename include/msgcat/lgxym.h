@@ -31,19 +31,23 @@
 #define LEV_LXYM_NO_RECIPIENT    ERR
 #define TXT_LXYM_NO_RECIPIENT    "no recipients listed, XMSRV was %s, XMSERVERS was %s"
 
-#define     LXYM_RECIPIENT_LIST  2011
+#define     LXYM_HTTP_RECIPIENT    2011
+#define LEV_LXYM_HTTP_RECIPIENT    ERR
+#define TXT_LXYM_HTTP_RECIPIENT    "Unable to parse HTTP recipient"
+
+#define     LXYM_RECIPIENT_LIST  2015
 #define LEV_LXYM_RECIPIENT_LIST  DBG
 #define TXT_LXYM_RECIPIENT_LIST  "recipient listed as %s"
 
-#define     LXYM_PORT            2012
+#define     LXYM_PORT            2016
 #define LEV_LXYM_PORT            DBG
 #define TXT_LXYM_PORT            "working with xymon port %d"
 
-#define     LXYM_HTTP_HOST       2013
+#define     LXYM_HTTP_HOST       2017
 #define LEV_LXYM_HTTP_HOST       DBG
 #define TXT_LXYM_HTTP_HOST       "Xymon: HTTP protocol directtly to host %s"
 
-#define     LXYM_HTTP_PROXY      2014
+#define     LXYM_HTTP_PROXY      2018
 #define LEV_LXYM_HTTP_PROXY      DBG
 #define TXT_LXYM_HTTP_PROXY      "Xymon: HTTP protocol via proxy to host %s"
 
