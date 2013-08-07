@@ -37,7 +37,7 @@
 
 #define     LXYM_RECONNECT       2012
 #define LEV_LXYM_RECONNECT       INF
-#define TXT_LXYM_RECONNECT       "reconnect to adress %s port %s"
+#define TXT_LXYM_RECONNECT       "reconnect to adress %s port %d"
 
 #define     LXYM_RECIPIENT_LIST  2015
 #define LEV_LXYM_RECIPIENT_LIST  DBG
