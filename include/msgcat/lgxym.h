@@ -43,4 +43,8 @@
 #define LEV_LXYM_HTTP_HOST       DBG
 #define TXT_LXYM_HTTP_HOST       "Xymon: HTTP protocol directtly to host %s"
 
+#define     LXYM_HTTP_PROXY      2014
+#define LEV_LXYM_HTTP_PROXY      DBG
+#define TXT_LXYM_HTTP_PROXY      "Xymon: HTTP protocol via proxy to host %s"
+
 #endif
