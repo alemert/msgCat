@@ -47,23 +47,27 @@
 #define LEV_LXYM_SEND_ERROR     WAR
 #define TXT_LXYM_SEND_ERROR     "Select failure while sending to Xymon daemon@%s:%d"
 
-#define     LXYM_RECIPIENT_LIST  2015
+#define     LXYM_SEND_TIMEOUT     2015
+#define LEV_LXYM_SEND_TIMEOUT     WAR
+#define TXT_LXYM_SEND_TIMEOUT     "Timeout while talking to Xymon daemon@%s:%d - retrying"
+
+#define     LXYM_RECIPIENT_LIST  2030
 #define LEV_LXYM_RECIPIENT_LIST  DBG
 #define TXT_LXYM_RECIPIENT_LIST  "recipient listed as %s"
 
-#define     LXYM_PORT            2016
+#define     LXYM_PORT            2031
 #define LEV_LXYM_PORT            DBG
 #define TXT_LXYM_PORT            "working with xymon port %d"
 
-#define     LXYM_HTTP_HOST       2017
+#define     LXYM_HTTP_HOST       2032
 #define LEV_LXYM_HTTP_HOST       DBG
 #define TXT_LXYM_HTTP_HOST       "Xymon: HTTP protocol directtly to host %s"
 
-#define     LXYM_HTTP_PROXY      2018
+#define     LXYM_HTTP_PROXY      2033
 #define LEV_LXYM_HTTP_PROXY      DBG
 #define TXT_LXYM_HTTP_PROXY      "Xymon: HTTP protocol via proxy to host %s"
 
-#define     LXYM_HTTP_MSG        2019
+#define     LXYM_HTTP_MSG        2034
 #define LEV_LXYM_HTTP_MSG        DBG
 #define TXT_LXYM_HTTP_MSG        "HTTP message is %s"
 
