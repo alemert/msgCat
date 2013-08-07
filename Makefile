@@ -42,7 +42,7 @@ ARCHIVE = libmsgcat.a
 # ------------------------------------------------------------------------------
 # rollout includes
 # ------------------------------------------------------------------------------
-ROLLOUT_INC = ctl.h msgcat/lgmqm.h  msgcat/lgstd.h
+ROLLOUT_INC = ctl.h msgcat/lgmqm.h  msgcat/lgstd.h msgcat/lgxym.h
 
 # ------------------------------------------------------------------------------
 # general includes

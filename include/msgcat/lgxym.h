@@ -20,3 +20,11 @@
 #define LEV_LXYM_NO_RECIPIENT  ERR
 #define TXT_LXYM_NO_RECIPIENT  "No recipient for message"
 
+#define     LXYM_SEND_INF  2001
+#define LEV_LXYM_SEND_INF  INF
+#define TXT_LXYM_SEND_INF  "Messae send to Xymon with status %s" 
+
+#define     LXYM_SEND_ERR  2002
+#define LEV_LXYM_SEND_ERR  ERR
+#define TXT_LXYM_SEND_ERR  "Messae send to Xymon with status %s" 
+
