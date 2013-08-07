@@ -35,4 +35,8 @@
 #define LEV_LXYM_RECIPIENT_LIST  DBG
 #define TXT_LXYM_RECIPIENT_LIST  "recipient listed as %s"
 
+#define     LXYM_PORT            2012
+#define LEV_LXYM_PORT            DBG
+#define TXT_LXYM_PORT            "working with xymon port %d"
+
 #endif
