@@ -31,9 +31,13 @@
 #define LEV_LXYM_NO_RECIPIENT    ERR
 #define TXT_LXYM_NO_RECIPIENT    "no recipients listed, XMSRV was %s, XMSERVERS was %s"
 
-#define     LXYM_HTTP_RECIPIENT    2011
-#define LEV_LXYM_HTTP_RECIPIENT    ERR
-#define TXT_LXYM_HTTP_RECIPIENT    "Unable to parse HTTP recipient"
+#define     LXYM_HTTP_RECIPIENT  2011
+#define LEV_LXYM_HTTP_RECIPIENT  ERR
+#define TXT_LXYM_HTTP_RECIPIENT  "Unable to parse HTTP recipient"
+
+#define     LXYM_RECONNECT       2012
+#define LEV_LXYM_RECONNECT       INF
+#define TXT_LXYM_RECONNECT       "reconnect to adress %s port %s"
 
 #define     LXYM_RECIPIENT_LIST  2015
 #define LEV_LXYM_RECIPIENT_LIST  DBG

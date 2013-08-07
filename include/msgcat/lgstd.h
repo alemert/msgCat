@@ -59,6 +59,10 @@
 #define LEV_LSTD_FREE_NULL_ERROR    ERR
 #define TXT_LSTD_FREE_NULL_ERROR    "free call on NULL pointer"
 
+#define     LSTD_GETHOST_BY_NAME_ERROR  122
+#define LEV_LSTD_GETHOST_BY_NAME_ERROR  ERR
+#define TXT_LSTD_GETHOST_BY_NAME_ERROR  "Cannot determinate IP Adress (gethostbyname) %s"
+
 #define     LSTD_INI_SYNTAX_ERROR    200
 #define LEV_LSTD_INI_SYNTAX_ERROR    ERR
 #define TXT_LSTD_INI_SYNTAX_ERROR    "ini file syntax error near %s" 
