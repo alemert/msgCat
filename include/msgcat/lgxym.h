@@ -39,4 +39,8 @@
 #define LEV_LXYM_PORT            DBG
 #define TXT_LXYM_PORT            "working with xymon port %d"
 
+#define     LXYM_HTTP_HOST       2013
+#define LEV_LXYM_HTTP_HOST       DBG
+#define TXT_LXYM_HTTP_HOST       "Xymon: HTTP protocol directtly to host %s"
+
 #endif
