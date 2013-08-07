@@ -51,8 +51,8 @@
 #define LEV_LXYM_HTTP_PROXY      DBG
 #define TXT_LXYM_HTTP_PROXY      "Xymon: HTTP protocol via proxy to host %s"
 
-#define     LXYM_HTTP_PROXY      2019
-#define LEV_LXYM_HTTP_PROXY      DBG
-#define TXT_LXYM_HTTP_PROXY      "HTTP message is %s"
+#define     LXYM_HTTP_MSG        2019
+#define LEV_LXYM_HTTP_MSG        DBG
+#define TXT_LXYM_HTTP_MSG        "HTTP message is %s"
 
 #endif
