@@ -21,3 +21,4 @@
 0.4.03 LXYM_NO_RECPIENT messages added
 0.4.04 ifndef for include in all msgcat/lg*.h
        textornull function added to ctl.c
+0.4.05 diverse LXYM_ messages added

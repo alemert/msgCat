@@ -19,16 +19,20 @@
 /******************************************************************************/
 /*   D E F I N E S                                                            */
 /******************************************************************************/
-#define     LXYM_SEND_INF  2000
-#define LEV_LXYM_SEND_INF  INF
-#define TXT_LXYM_SEND_INF  "Messae send to Xymon with status %s" 
+#define     LXYM_SEND_INF        2000
+#define LEV_LXYM_SEND_INF        INF
+#define TXT_LXYM_SEND_INF        "Messae send to Xymon with status %s" 
 
-#define     LXYM_SEND_ERR  2001
-#define LEV_LXYM_SEND_ERR  ERR
-#define TXT_LXYM_SEND_ERR  "Messae send to Xymon with status %s" 
+#define     LXYM_SEND_ERR        2001
+#define LEV_LXYM_SEND_ERR        ERR
+#define TXT_LXYM_SEND_ERR        "Messae send to Xymon with status %s" 
 
-#define     LXYM_NO_RECIPIENT  2010
-#define LEV_LXYM_NO_RECIPIENT  ERR
-#define TXT_LXYM_NO_RECIPIENT  "no recipients listed, XMSRV was %s, XMSERVERS was %s"
+#define     LXYM_NO_RECIPIENT    2010
+#define LEV_LXYM_NO_RECIPIENT    ERR
+#define TXT_LXYM_NO_RECIPIENT    "no recipients listed, XMSRV was %s, XMSERVERS was %s"
+
+#define     LXYM_RECIPIENT_LIST  2011
+#define LEV_LXYM_RECIPIENT_LIST  DBG
+#define TXT_LXYM_RECIPIENT_LIST  "recipient listed as %s"
 
 #endif
