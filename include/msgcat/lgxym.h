@@ -55,9 +55,9 @@
 #define LEV_LXYM_CONN_CLOSE     DBG
 #define TXT_LXYM_CONN_CLOSE     "Connection to xymon deamon closed"
 
-#define     LXYM_CONN_CLOSE     2017
-#define LEV_LXYM_CONN_CLOSE     DBG
-#define TXT_LXYM_CONN_CLOSE     "Transport setup is xymondportnumber = %d xymonproxyhost = %s xymonproxyport"
+#define     LXYM_SETUP     2017
+#define LEV_LXYM_SETUP     DBG
+#define TXT_LXYM_SETUP     "Transport setup is xymondportnumber = %d xymonproxyhost = %s xymonproxyport"
 
 #define     LXYM_RECIPIENT_LIST  2030
 #define LEV_LXYM_RECIPIENT_LIST  DBG
