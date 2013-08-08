@@ -51,6 +51,10 @@
 #define LEV_LXYM_SEND_TIMEOUT     WAR
 #define TXT_LXYM_SEND_TIMEOUT     "Timeout while talking to Xymon daemon@%s:%d - retrying"
 
+#define     LXYM_CONN_CLOSE     2016
+#define LEV_LXYM_CONN_CLOSE     DBG
+#define TXT_LXYM_CONN_CLOSE     "Connection to xymon deamon closed"
+
 #define     LXYM_RECIPIENT_LIST  2030
 #define LEV_LXYM_RECIPIENT_LIST  DBG
 #define TXT_LXYM_RECIPIENT_LIST  "recipient listed as %s"
