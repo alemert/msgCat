@@ -57,7 +57,7 @@
 
 #define     LXYM_SETUP     2017
 #define LEV_LXYM_SETUP     DBG
-#define TXT_LXYM_SETUP     "Transport setup is xymondportnumber = %d xymonproxyhost = %s xymonproxyport"
+#define TXT_LXYM_SETUP     "Transport setup is xymondportnumber = %d xymonproxyhost = %s xymonproxyport %d"
 
 #define     LXYM_RECIPIENT_LIST  2030
 #define LEV_LXYM_RECIPIENT_LIST  DBG
