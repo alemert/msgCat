@@ -45,7 +45,7 @@
 
 #define     LXYM_SEND_ERROR     2014
 #define LEV_LXYM_SEND_ERROR     WAR
-#define TXT_LXYM_SEND_ERROR     "Select failure while sending to Xymon daemon@%s:%d"
+#define TXT_LXYM_SEND_ERROR     "%s error while sending to Xymon daemon@%s:%d"
 
 #define     LXYM_SEND_TIMEOUT     2015
 #define LEV_LXYM_SEND_TIMEOUT     WAR
