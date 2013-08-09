@@ -47,9 +47,13 @@
 #define LEV_LSTD_GET_FILE_SIZE      ERR
 #define TXT_LSTD_GET_FILE_SIZE      "can not get file size for %s" 
 
-#define     LSTD_ERR_READING_FILE   111
+#define     LSTD_ERR_READING_FILE   112
 #define LEV_LSTD_ERR_READING_FILE   ERR
 #define TXT_LSTD_ERR_READING_FILE   "error reading file %s" 
+
+#define     LSTD_ERR_BAD_FD     113
+#define LEV_LSTD_ERR_BAD_FD     ERR
+#define TXT_LSTD_ERR_BAD_FD     "function %s() called with bad file descriptor"
 
 #define     LSTD_MEM_ALLOC_ERROR    120
 #define LEV_LSTD_MEM_ALLOC_ERROR    CRI
