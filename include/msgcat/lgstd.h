@@ -55,6 +55,10 @@
 #define LEV_LSTD_ERR_BAD_FD     ERR
 #define TXT_LSTD_ERR_BAD_FD     "function %s() called with bad file descriptor"
 
+#define     LSTD_ERR_BAD_FD     114
+#define LEV_LSTD_ERR_BAD_FD     ERR
+#define TXT_LSTD_ERR_BAD_FD     "cannot open directory %s"
+
 #define     LSTD_MEM_ALLOC_ERROR    120
 #define LEV_LSTD_MEM_ALLOC_ERROR    CRI
 #define TXT_LSTD_MEM_ALLOC_ERROR    "can not allocate memory"
