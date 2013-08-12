@@ -51,13 +51,13 @@
 #define LEV_LSTD_ERR_READING_FILE   ERR
 #define TXT_LSTD_ERR_READING_FILE   "error reading file %s" 
 
-#define     LSTD_ERR_BAD_FD     113
-#define LEV_LSTD_ERR_BAD_FD     ERR
-#define TXT_LSTD_ERR_BAD_FD     "function %s() called with bad file descriptor"
+#define     LSTD_ERR_BAD_FD         113
+#define LEV_LSTD_ERR_BAD_FD         ERR
+#define TXT_LSTD_ERR_BAD_FD         "function %s() called with bad file descriptor"
 
-#define     LSTD_ERR_BAD_FD     114
-#define LEV_LSTD_ERR_BAD_FD     ERR
-#define TXT_LSTD_ERR_BAD_FD     "cannot open directory %s"
+#define     LSTD_OPEN_DIR_FAILED    114
+#define LEV_LSTD_OPEN_DIR_FAILED    ERR
+#define TXT_LSTD_OPEN_DIR_FAILED    "cannot open directory %s"
 
 #define     LSTD_MEM_ALLOC_ERROR    120
 #define LEV_LSTD_MEM_ALLOC_ERROR    CRI
