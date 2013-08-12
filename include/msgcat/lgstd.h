@@ -71,6 +71,14 @@
 #define LEV_LSTD_GETHOST_BY_NAME_ERROR  ERR
 #define TXT_LSTD_GETHOST_BY_NAME_ERROR  "Cannot determinate IP Adress (gethostbyname) %s"
 
+#define     LSTD_GETENV_ERROR    123
+#define LEV_LSTD_GETENV_ERROR    ERR
+#define TXT_LSTD_GETENV_ERROR    "Cannot get eviroment variable %s"
+
+#define     LSTD_GETENV_WARNING   124
+#define LEV_LSTD_GETENV_WARNING   WAR
+#define TXT_LSTD_GETENV_WARNING   "Cannot get eviroment variable %s"
+
 #define     LSTD_INI_SYNTAX_ERROR    200
 #define LEV_LSTD_INI_SYNTAX_ERROR    ERR
 #define TXT_LSTD_INI_SYNTAX_ERROR    "ini file syntax error near %s" 
