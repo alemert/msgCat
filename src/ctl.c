@@ -143,6 +143,14 @@ int loggerFunc( const int   line,  // source file line of the logger macro
          int flowFlag ;      // bool entry / exit func flag
 
   // -------------------------------------------------------
+  // check if log FD is open
+  // -------------------------------------------------------
+  if( _gLogFP == NULL )
+  {
+    _gLogFP = stderr ;
+  }
+
+  // -------------------------------------------------------
   // get pid only once
   // -------------------------------------------------------
   if( pid == 0 )
