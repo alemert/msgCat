@@ -29,7 +29,7 @@
 
 #define     LXYM_NO_RECIPIENT    2010
 #define LEV_LXYM_NO_RECIPIENT    ERR
-#define TXT_LXYM_NO_RECIPIENT    "no recipients listed, XMSRV was %s, XMSERVERS was %s"
+#define TXT_LXYM_NO_RECIPIENT    "no xymon recipients listed, XMSRV=NULL adn XMSERVERS=NULL"
 
 #define     LXYM_HTTP_RECIPIENT  2011
 #define LEV_LXYM_HTTP_RECIPIENT  ERR
