@@ -11,7 +11,8 @@
 /*   - getLogFP                                                               */
 /*   - getLogTime                                                             */
 /*   - dumpFunc                                                               */
-/*   - textornull                              */
+/*   - textornull                                                             */
+/*   - logStr2lev                            */
 /*                                                                            */
 /******************************************************************************/
 
@@ -254,9 +255,9 @@ int loggerFunc( const int   line,  // source file line of the logger macro
   // -------------------------------------------------------
   // dump memory chashe if level critical
   // -------------------------------------------------------
-  if( lev == CRI                 ||
-      id  == LEV_LSYS_DUMP_START ||  
-      id  == LEV_LSYS_DUMP_END    )
+  if( lev == CRI             ||
+      id  == LSYS_DUMP_START ||  
+      id  == LSYS_DUMP_END    )
   {
     int i ;
 
@@ -366,8 +367,10 @@ int dumpFunc( char* _offset             ,   // print offset to value
 
   int i ;
 
-  char buff[DMP_ITEM_LEN*2+1] ;
-  char separator[DMP_ITEM_LEN*2+1] ;
+//char buff[DMP_ITEM_LEN*2+1] ;
+//char separator[DMP_ITEM_LEN*2+1] ;
+  char buff[LOG_BUFFER_CACHE_SIZE] ;
+  char separator[LOG_BUFFER_CACHE_SIZE] ;
   
   // -------------------------------------------------------
   // init 
@@ -456,3 +459,18 @@ const char* textornull( char *text )
   return (text ? text : "(NULL)");
 }
 
+/******************************************************************************/
+/*  string to level                                                           */
+/*                                                                            */
+/*  description:                                                              */
+/*    convert level string to level intiger                                   */
+/******************************************************************************/
+int logStr2lev( const char *str )
+{
+  int i;
+  for( i=SYS; i<=FLW; i++ )
+  {
+    if( strcmp( str, _gLoggerLevel[i]) == 0 ) break ;
+  } 
+  return i ;
+}
