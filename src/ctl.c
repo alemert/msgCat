@@ -188,6 +188,9 @@ int loggerFunc( const int   line,  // source file line of the logger macro
     }
   }
 
+  // -------------------------------------------------------
+  // fill line buffer for FUNCTION_ENTRY & FUNCTION_EXIT
+  // -------------------------------------------------------
   if( flowFlag )
   {
     snprintf( lineBuffer, LOG_BUFFER_LINE_SIZE  ,
@@ -197,29 +200,35 @@ int loggerFunc( const int   line,  // source file line of the logger macro
                           id                    ,  // %05d 
                           _gLoggerLevel[lev]    ,  // %s 
                           flowBuffer           );  // %s
+    dbgBuffer[0] = '\0' ;
+
+  #if(0)
     if( lev < FLW )
     {
       goto _door_cache ;
     }
+  #endif
   }
-
   // -------------------------------------------------------
   // fill line buffer
   // -------------------------------------------------------
-  snprintf( lineBuffer, LOG_BUFFER_LINE_SIZE  ,
-                        "%s %6d %05d %s %s\n" ,
-                        timeStr               ,
-                        pid                   ,
-                        id                    ,
-                        _gLoggerLevel[lev]    ,
-                        msg )                 ;
+  else
+  {
+    snprintf( lineBuffer, LOG_BUFFER_LINE_SIZE  ,
+                          "%s %6d %05d %s %s\n" ,
+                          timeStr               ,
+                          pid                   ,
+                          id                    ,
+                          _gLoggerLevel[lev]    ,
+                          msg )                 ;
 
-  snprintf( dbgBuffer, LOG_BUFFER_LINE_SIZE           ,
-                       "%s %s() in %s (line: %05d)\n" ,
-                       SPACE_OFFSET                   ,
-                       func                           ,
-                       file                           ,
-                       line                          );
+    snprintf( dbgBuffer, LOG_BUFFER_LINE_SIZE           ,
+                         "%s %s() in %s (line: %05d)\n" ,
+                         SPACE_OFFSET                   ,
+                         func                           ,
+                         file                           ,
+                         line                          );
+  }
 
   // -------------------------------------------------------
   // log if neccessary
@@ -232,7 +241,6 @@ int loggerFunc( const int   line,  // source file line of the logger macro
   if( _gMaxLevel > LOG )
   {
     fprintf( _gLogFP, "%s", dbgBuffer ) ;
-  //printf("%s",dbgBuffer) ;
   }
 
   _door_cache:
