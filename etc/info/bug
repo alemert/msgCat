@@ -12,3 +12,4 @@
 ver 0.4.06 crash if logFD not open (_gLogFP==NULL)
 ver 0.4.08 bugs found by cppcheck, str2lev added
 ver 0.4.09 bug not logging enter / exit function at level FLW solved
+ver 0.4.11 bug dumper does not work, error in logFunc dump on critical

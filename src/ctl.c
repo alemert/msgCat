@@ -264,11 +264,11 @@ int loggerFunc( const int   line,  // source file line of the logger macro
   }
 
   // -------------------------------------------------------
-  // dump memory chashe if level critical
+  // dump memory cache if level critical
   // -------------------------------------------------------
-  if( lev == CRI             ||
-      id  == LSYS_DUMP_START ||  
-      id  == LSYS_DUMP_END    )
+  if( lev == CRI  )
+//    id  == LSYS_DUMP_START ||  
+//    id  == LSYS_DUMP_END    )
   {
     int i ;
 
