@@ -197,7 +197,10 @@ int loggerFunc( const int   line,  // source file line of the logger macro
                           id                    ,  // %05d 
                           _gLoggerLevel[lev]    ,  // %s 
                           flowBuffer           );  // %s
-    goto _door_cache ;
+    if( lev < FLW )
+    {
+      goto _door_cache ;
+    }
   }
 
   // -------------------------------------------------------
