@@ -136,3 +136,4 @@ int  setLogFileName( const char* name ) ;
 int initLogging( const char* logName, int logLevel ) ;
 FILE* getLogFP() ;
 const char* textornull( char *text ) ;
+int logStr2lev( const char *str );
