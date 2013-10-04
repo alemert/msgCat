@@ -470,6 +470,7 @@ int logStr2lev( const char *str )
   int i;
   for( i=SYS; i<=FLW; i++ )
   {
+    if( _gLoggerLevel[i] == NULL ) continue ;
     if( strcmp( str, _gLoggerLevel[i]) == 0 ) break ;
   } 
   return i ;
