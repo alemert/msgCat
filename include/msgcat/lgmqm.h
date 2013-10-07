@@ -43,6 +43,10 @@
 #define LEV_LMQM_DBG_CALL     DBG
 #define TXT_LMQM_DBG_CALL     "logging mq call %s with: %s"
 
+#define     LMQM_UNKNOWN_DMP_STRUCT  1109
+#define LEV_LMQM_UNKNOWN_DMP_STRUCT  ERR
+#define TXT_LMQM_UNKNOWN_DMP_STRUCT  "unknown dump struct %4s"
+
 #define     LMQM_QMGR_CONNECTED  1110
 #define LEV_LMQM_QMGR_CONNECTED  LOG
 #define TXT_LMQM_QMGR_CONNECTED  "connected to queue manager %s"
@@ -51,12 +55,8 @@
 #define LEV_LMQM_Q_OPENED        LOG
 #define TXT_LMQM_Q_OPENED        "queue %s opened"
 
-#define     LMQM_INCR_MSG_BUFF   1110
+#define     LMQM_INCR_MSG_BUFF   1120
 #define LEV_LMQM_INCR_MSG_BUFF   INF
 #define TXT_LMQM_INCR_MSG_BUFF   "increase message buffer for MQGET to %d byte"
-
-#define     LMQM_UNKNOWN_DMP_STRUCT  1110
-#define LEV_LMQM_UNKNOWN_DMP_STRUCT  ERR
-#define TXT_LMQM_UNKNOWN_DMP_STRUCT  "unknown dump struct %4s"
 
 #endif

@@ -79,6 +79,14 @@
 #define LEV_LSTD_GETENV_WARNING   WAR
 #define TXT_LSTD_GETENV_WARNING   "Cannot get environment variable %s"
 
+#define     LSTD_UNKNOWN_CMDLN_ATTR   125
+#define LEV_LSTD_UNKNOWN_CMDLN_ATTR   WAR
+#define TXT_LSTD_UNKNOWN_CMDLN_ATTR   "command line attribute %s not found"
+
+#define     LSTD_UNKNOWN_INI_ATTR   126
+#define LEV_LSTD_UNKNOWN_INI_ATTR   WAR
+#define TXT_LSTD_UNKNOWN_INI_ATTR   "ini file attribute %s not found"
+
 #define     LSTD_INI_SYNTAX_ERROR    200
 #define LEV_LSTD_INI_SYNTAX_ERROR    ERR
 #define TXT_LSTD_INI_SYNTAX_ERROR    "ini file syntax error near %s" 
