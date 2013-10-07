@@ -254,7 +254,7 @@ int loggerFunc( const int   line,  // source file line of the logger macro
   _gBufferCacheIndex++ ;
   if( _gBufferCacheIndex > LOG_BUFFER_CACHE_SIZE ) _gBufferCacheIndex = 0 ;
 
-  if( dbgBuffer[0] == '\0' )                           
+  if( dbgBuffer[0] != '\0' )                           
   {
     memcpy( _gBufferCache[_gBufferCacheIndex+1] ,
             dbgBuffer                           ,
