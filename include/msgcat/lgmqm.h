@@ -59,4 +59,12 @@
 #define LEV_LMQM_INCR_MSG_BUFF   INF
 #define TXT_LMQM_INCR_MSG_BUFF   "increase message buffer for MQGET to %d byte"
 
+#define     LMQM_ITEM_COUNT      1121
+#define LEV_LMQM_ITEM_COUNT      DBG
+#define TXT_LMQM_ITEM_COUNT      "bag item count %d"
+
+#define     LMQM_ITEM_TYPE      1122
+#define LEV_LMQM_ITEM_TYPE      DBG
+#define TXT_LMQM_ITEM_TYPE      "bag item type %s"
+
 #endif

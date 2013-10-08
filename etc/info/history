@@ -26,3 +26,4 @@
 0.4.08 bugs fund by cppchek, str2lev added
 0.4.10 new mq messages added
 0.4.12 mq messages renumbered, std messages added
+0.4.13 additional mq messages
