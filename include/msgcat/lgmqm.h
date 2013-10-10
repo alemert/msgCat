@@ -49,7 +49,7 @@
 
 #define     LMQM_QMGR_CONNECTED  1110
 #define LEV_LMQM_QMGR_CONNECTED  LOG
-#define TXT_LMQM_QMGR_CONNECTED  "connected to queue manager %s"
+#define TXT_LMQM_QMGR_CONNECTED  "connected to queue manager %30.30s"
 
 #define     LMQM_Q_OPENED        1112
 #define LEV_LMQM_Q_OPENED        LOG
