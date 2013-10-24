@@ -23,5 +23,9 @@
 #define LEV_LEVN_EVENT_ITEM_NOT_EXIST     ERR
 #define TXT_LEVN_EVENT_ITEM_NOT_EXIST     "event item %s does not exist"
 
+#define     LEVN_EVENT_ITEM_TYPE_ERROR    3011
+#define LEV_LEVN_EVENT_ITEM_TYPE_ERROR    ERR
+#define TXT_LEVN_EVENT_ITEM_TYPE_ERROR    "event item %s has an unexpected type"
+
 
 #endif
