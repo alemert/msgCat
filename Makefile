@@ -4,7 +4,7 @@
 
 MAKE_INCLUDE_PATH=mk.inc
 
-CATALOG.H = $(addprefix include/msgcat/,lgstd.h lgmqm.h )
+CATALOG.H = $(addprefix include/msgcat/,lgstd.h lgmqm.h lgxym.h lgmqe.h)
 SRC.O += $(CAT_OBJ_PATH)/catalogrc.o
 
 # ------------------------------------------------------------------------------
@@ -42,7 +42,8 @@ ARCHIVE = libmsgcat.a
 # ------------------------------------------------------------------------------
 # rollout includes
 # ------------------------------------------------------------------------------
-ROLLOUT_INC = ctl.h msgcat/lgmqm.h  msgcat/lgstd.h msgcat/lgxym.h
+ROLLOUT_INC = ctl.h msgcat/lgmqm.h  msgcat/lgstd.h msgcat/lgxym.h \
+                    msgcat/lgmqe.h
 
 # ------------------------------------------------------------------------------
 # general includes

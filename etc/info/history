@@ -27,3 +27,4 @@
 0.4.10 new mq messages added
 0.4.12 mq messages renumbered, std messages added
 0.4.13 additional mq messages
+0.5.00 lgmqe.h for mqEv messages added
