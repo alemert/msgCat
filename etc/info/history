@@ -29,3 +29,4 @@
 0.4.13 additional mq messages
 0.5.00 lgmqe.h for mqEv messages added
 0.5.01 additional mqEv message
+0.5.02 resizing dump, for mqbyte24
