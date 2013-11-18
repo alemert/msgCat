@@ -71,7 +71,7 @@ FILE *_gLogFP ;
 #define FLW_LSYS_FUNC_EXIT      "exit function %s() in %s at line %05d"
 
 #define DUMP_KEY_FORMAT  "%-30.30s"
-#define DUMP_VAL_FORMAT  "%-80.50s"
+#define DUMP_VAL_FORMAT  "%-50.80s"
 
 /******************************************************************************/
 /*   M A C R O S                                                              */
