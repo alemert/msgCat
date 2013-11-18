@@ -70,8 +70,8 @@ FILE *_gLogFP ;
 
 #define FLW_LSYS_FUNC_EXIT      "exit function %s() in %s at line %05d"
 
-#define DUMP_KEY_FORMAT  "%-40.40s"
-#define DUMP_VAL_FORMAT  "%-40.40s"
+#define DUMP_KEY_FORMAT  "%-30.30s"
+#define DUMP_VAL_FORMAT  "%-80.80s"
 
 /******************************************************************************/
 /*   M A C R O S                                                              */
@@ -395,8 +395,8 @@ int dumpFunc( char* _offset             ,   // print offset to value
                         "%s"DUMP_KEY_FORMAT":"
                          DUMP_VAL_FORMAT"\n",
                         _offset             ,
-                        "====================================================",
-                        "====================================================");
+                        "========================================" ,
+                        "========================================" );
 
   if( _gMaxLevel >= DBG ) { fprintf( _gLogFP, "%s", separator ) ; }
 
