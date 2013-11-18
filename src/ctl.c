@@ -62,7 +62,7 @@ FILE *_gLogFP ;
 /******************************************************************************/
 /*   D E F I N E S                                                            */
 /******************************************************************************/
-#define TIME_STR_LNG 32
+#define TIME_STR_LNG 50
 #define SPACE_OFFSET "                                    "
 #define MARKER_OFFSET "= = = = = = = = = = = = = = ="
 
@@ -71,7 +71,7 @@ FILE *_gLogFP ;
 #define FLW_LSYS_FUNC_EXIT      "exit function %s() in %s at line %05d"
 
 #define DUMP_KEY_FORMAT  "%-30.30s"
-#define DUMP_VAL_FORMAT  "%-50.50s"
+#define DUMP_VAL_FORMAT  "%-40.40s"
 
 /******************************************************************************/
 /*   M A C R O S                                                              */
