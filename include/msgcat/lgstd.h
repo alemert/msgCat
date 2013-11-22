@@ -87,6 +87,14 @@
 #define LEV_LSTD_UNKNOWN_INI_ATTR   WAR
 #define TXT_LSTD_UNKNOWN_INI_ATTR   "ini file attribute %s not found"
 
+#define     LSTD_UNKNOWN_CMDLN_ATTR_ERR   127
+#define LEV_LSTD_UNKNOWN_CMDLN_ATTR_ERR   WAR
+#define TXT_LSTD_UNKNOWN_CMDLN_ATTR_ERR   "command line attribute %s not found"
+
+#define     LSTD_UNKNOWN_INI_ATTR_ERR   128
+#define LEV_LSTD_UNKNOWN_INI_ATTR_ERR   ERR
+#define TXT_LSTD_UNKNOWN_INI_ATTR_ERR   "ini file attribute %s not found"
+
 #define     LSTD_INI_SYNTAX_ERROR    200
 #define LEV_LSTD_INI_SYNTAX_ERROR    ERR
 #define TXT_LSTD_INI_SYNTAX_ERROR    "ini file syntax error near %s" 
