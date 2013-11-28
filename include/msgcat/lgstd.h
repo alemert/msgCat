@@ -59,6 +59,22 @@
 #define LEV_LSTD_OPEN_DIR_FAILED    ERR
 #define TXT_LSTD_OPEN_DIR_FAILED    "cannot open directory %s"
 
+#define     LSTD_FORK_PROCESS    115
+#define LEV_LSTD_FORK_PROCESS    INF
+#define TXT_LSTD_FORK_PROCESS    "forking process"
+
+#define     LSTD_FORK_PARENT    116
+#define LEV_LSTD_FORK_PARENT    INF
+#define TXT_LSTD_FORK_PARENT    "parent process"
+
+#define     LSTD_FORK_CHILD    117
+#define LEV_LSTD_FORK_CHILD    INF
+#define TXT_LSTD_FORK_CHILD    "child process"
+
+#define     LSTD_FORK_FAILED    118
+#define LEV_LSTD_FORK_FAILED    CRI
+#define TXT_LSTD_FORK_FAILED    "fork failed"
+
 #define     LSTD_MEM_ALLOC_ERROR    120
 #define LEV_LSTD_MEM_ALLOC_ERROR    CRI
 #define TXT_LSTD_MEM_ALLOC_ERROR    "can not allocate memory"
