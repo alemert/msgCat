@@ -27,5 +27,9 @@
 #define LEV_LEVN_EVENT_ITEM_TYPE_ERROR    ERR
 #define TXT_LEVN_EVENT_ITEM_TYPE_ERROR    "event item %s has an unexpected type"
 
+#define     LEVN_MISSING_CODE_FOR_SELECTOR  3012
+#define LEV_LEVN_MISSING_CODE_FOR_SELECTOR  ERR
+#define TXT_LEVN_MISSING_CODE_FOR_SELECTOR  "missing code for selector %d file: %s at line %d"
+
 
 #endif
