@@ -59,6 +59,10 @@
 #define LEV_LMQM_UNKNOWN_QMGR    ERR
 #define TXT_LMQM_UNKNOWN_QMGR    "queue manager %s does not exists"
 
+#define     LMQM_UNKNOWN_OBJECT  1114
+#define LEV_LMQM_UNKNOWN_OBJECT  ERR
+#define TXT_LMQM_UNKNOWN_OBJECT  "mq object %s does not exists"
+
 #define     LMQM_INCR_MSG_BUFF   1120
 #define LEV_LMQM_INCR_MSG_BUFF   INF
 #define TXT_LMQM_INCR_MSG_BUFF   "increase message buffer for MQGET to %d byte"
