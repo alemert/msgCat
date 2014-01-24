@@ -55,6 +55,10 @@
 #define LEV_LMQM_Q_OPENED        LOG
 #define TXT_LMQM_Q_OPENED        "queue %s opened"
 
+#define     LMQM_UNKNOWN_QMGR    1113
+#define LEV_LMQM_UNKNOWN_QMGR    ERR
+#define TXT_LMQM_UNKNOWN_QMGR    "queue manager %s does not exists"
+
 #define     LMQM_INCR_MSG_BUFF   1120
 #define LEV_LMQM_INCR_MSG_BUFF   INF
 #define TXT_LMQM_INCR_MSG_BUFF   "increase message buffer for MQGET to %d byte"
