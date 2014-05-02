@@ -151,6 +151,10 @@
 #define LEV_LSTD_INI_SEARCH_STR_CNT_ERR ERR
 #define TXT_LSTD_INI_SEARCH_STR_CNT_ERR "Wrong nr. of search string <tag><key><value>"
 
+#define     LSTD_XML_FILE_ERR  210
+#define LEV_LSTD_XML_FILE_ERR  ERR
+#define TXT_LSTD_XML_FILE_ERR  "Can not load xml file %s"
+
 /******************************************************************************/
 /*   M A C R O S                                                              */
 /******************************************************************************/
