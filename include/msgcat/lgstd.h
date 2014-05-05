@@ -159,6 +159,14 @@
 #define LEV_LSTD_XML_CTX_ERR  ERR
 #define TXT_LSTD_XML_CTX_ERR  "XML Context error in %s"
 
+#define     LSTD_XML_XPATH_ERR  212
+#define LEV_LSTD_XML_XPATH_ERR  ERR
+#define TXT_LSTD_XML_XPATH_ERR  "XML path %s not found"
+
+#define     LSTD_XML_XPATH_INF  213
+#define LEV_LSTD_XML_XPATH_INF  INF
+#define TXT_LSTD_XML_XPATH_INF  "XML path %s not found"
+
 /******************************************************************************/
 /*   M A C R O S                                                              */
 /******************************************************************************/
