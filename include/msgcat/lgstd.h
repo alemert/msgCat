@@ -155,6 +155,10 @@
 #define LEV_LSTD_XML_FILE_ERR  ERR
 #define TXT_LSTD_XML_FILE_ERR  "Can not load xml file %s"
 
+#define     LSTD_XML_CTX_ERR  211
+#define LEV_LSTD_XML_CTX_ERR  ERR
+#define TXT_LSTD_XML_CTX_ERR  "XML Context error in %s"
+
 /******************************************************************************/
 /*   M A C R O S                                                              */
 /******************************************************************************/
