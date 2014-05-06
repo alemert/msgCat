@@ -31,5 +31,8 @@
 #define LEV_LEVN_MISSING_CODE_FOR_SELECTOR  ERR
 #define TXT_LEVN_MISSING_CODE_FOR_SELECTOR  "missing code for selector %d file: %s at line %d"
 
+#define     LEVN_XML_UNKNWOWN_SELECTOR  3015
+#define LEV_LEVN_XML_UNKNWOWN_SELECTOR  ERR
+#define TXT_LEVN_XML_UNKNWOWN_SELECTOR  "Unknown selector %s found in xml file %s"
 
 #endif

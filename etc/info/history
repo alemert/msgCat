@@ -36,3 +36,4 @@
 0.5.06 first xml message
 0.5.07 xml ctx err added
 0.5.08 xml xpath not found messages added
+0.5.09 uknown selector added to lqmqev.h
