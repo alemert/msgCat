@@ -63,9 +63,9 @@
 #define LEV_LMQM_UNKNOWN_OBJECT  ERR
 #define TXT_LMQM_UNKNOWN_OBJECT  "mq object %s does not exists"
 
-#define     LMQM_UNKNOWN_OBJECT  1115
-#define LEV_LMQM_UNKNOWN_OBJECT  WAR
-#define TXT_LMQM_UNKNOWN_OBJECT  "no message found, queue %s is empty"
+#define     LMQM_QUEUE_EMPTY     1115
+#define LEV_LMQM_QUEUE_EMPTY     WAR
+#define TXT_LMQM_QUEUE_EMPTY     "no message found, queue %s is empty"
 
 #define     LMQM_INCR_MSG_BUFF   1120
 #define LEV_LMQM_INCR_MSG_BUFF   INF
@@ -78,5 +78,14 @@
 #define     LMQM_ITEM_TYPE      1122
 #define LEV_LMQM_ITEM_TYPE      DBG
 #define TXT_LMQM_ITEM_TYPE      "bag item type %s"
+
+#define     LMQM_LOG_NAME_INVALIDE      1130
+#define LEV_LMQM_LOG_NAME_INVALIDE      CRI    
+#define TXT_LMQM_LOG_NAME_INVALIDE      "transactional log file name invalide" 
+
+#define     LMQM_LOG_NAME    1131
+#define LEV_LMQM_LOG_NAME    LOG    
+#define TXT_LMQM_LOG_NAME    "transactional log %s: %s"
+
 
 #endif
