@@ -63,6 +63,10 @@
 #define LEV_LMQM_UNKNOWN_OBJECT  ERR
 #define TXT_LMQM_UNKNOWN_OBJECT  "mq object %s does not exists"
 
+#define     LMQM_UNKNOWN_OBJECT  1115
+#define LEV_LMQM_UNKNOWN_OBJECT  WAR
+#define TXT_LMQM_UNKNOWN_OBJECT  "no message found, queue %s is empty"
+
 #define     LMQM_INCR_MSG_BUFF   1120
 #define LEV_LMQM_INCR_MSG_BUFF   INF
 #define TXT_LMQM_INCR_MSG_BUFF   "increase message buffer for MQGET to %d byte"
