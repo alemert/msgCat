@@ -119,6 +119,10 @@
 #define LEV_LSTD_FILE_COPIED   LOG
 #define TXT_LSTD_FILE_COPIED   "file %s copied to %s" 
 
+#define     LSTD_OPEN_PIPE_FAILED   130
+#define LEV_LSTD_OPEN_PIPE_FAILED   ERR
+#define TXT_LSTD_OPEN_PIPE_FAILED   "failed to open pipe"
+
 #define     LSTD_INI_SYNTAX_ERROR    200
 #define LEV_LSTD_INI_SYNTAX_ERROR    ERR
 #define TXT_LSTD_INI_SYNTAX_ERROR    "ini file syntax error near %s" 

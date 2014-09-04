@@ -29,6 +29,7 @@
 #define LOG   7            // log (without source lines)
 #define WAR   6            // warning
 #define ERR   5            // error
+#define MLT   4            // multiline output enabled
 #define CRI   1            // critical (abort program)
 #define SYS   0            // system (base program information)
 
@@ -62,6 +63,17 @@
 #define LEV_LSYS_DUMP_END     DBG
 #define TXT_LSYS_DUMP_END     "Memory dump end for %s"
 
+#define     LSYS_MULTILINE_START      7
+#define LEV_LSYS_MULTILINE_START     MLT
+#define TXT_LSYS_MULTILINE_START     "BEGIN output for %s"
+
+#define     LSYS_MULTILINE_END      8
+#define LEV_LSYS_MULTILINE_END     MLT
+#define TXT_LSYS_MULTILINE_END     "END output for %s"
+
+#define     LSYS_MULTILINE_ADD      9
+#define LEV_LSYS_MULTILINE_ADD     MLT
+#define TXT_LSYS_MULTILINE_ADD     "END output for %s"
 
 /******************************************************************************/
 /*   G L O B A L E S                                                          */
@@ -77,8 +89,6 @@
                            [LOG_BUFFER_LINE_SIZE]; // LOG_BUFFER_CACHE_SIZE msg
   static int  _gBufferCacheIndex = 0 ;             // actual line index for
                                                    // circular cache
-
-
 #else
 
   extern char _gLoggerBuffer[] ;

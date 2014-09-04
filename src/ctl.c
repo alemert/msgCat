@@ -40,26 +40,6 @@
 #include "ctl.h"
 
 /******************************************************************************/
-/*   G L O B A L S                                                            */
-/******************************************************************************/
-
-char *_gLoggerLevel[] = { [FLW]="FLW",
-                          [DBG]="DBG",
-                          [INF]="INF",
-                          [LOG]="LOG",
-                          [WAR]="WAR",
-                          [ERR]="ERR",
-                          [CRI]="CRI",
-                          [SYS]="SYS"
-                        } ;
-
-int _gMaxLevel = DEFAULT_LOG_LEVEL ;
-
-char _gLogFileName[256] ;
-
-FILE *_gLogFP ;
-
-/******************************************************************************/
 /*   D E F I N E S                                                            */
 /******************************************************************************/
 #define TIME_STR_LNG 32
@@ -72,6 +52,35 @@ FILE *_gLogFP ;
 
 #define DUMP_KEY_FORMAT  "%-30.30s"
 #define DUMP_VAL_FORMAT  "%-47.80s"
+
+// ---------------------------------------------------------
+// multi line flag values
+// ---------------------------------------------------------
+#define MULTI_LINE_ON       1
+#define MULTI_LINE_OFF      0
+
+/******************************************************************************/
+/*   G L O B A L S                                                            */
+/******************************************************************************/
+
+char *_gLoggerLevel[] = { [FLW]="FLW",
+                          [DBG]="DBG",
+                          [INF]="INF",
+                          [LOG]="LOG",
+                          [WAR]="WAR",
+                          [ERR]="ERR",
+                          [MLT]="MLT",
+                          [CRI]="CRI",
+                          [SYS]="SYS"
+                        } ;
+
+int _gMaxLevel = DEFAULT_LOG_LEVEL ;
+
+char _gLogFileName[256] ;
+
+FILE *_gLogFP ;
+
+int _gMultiLine = MULTI_LINE_OFF ;
 
 /******************************************************************************/
 /*   M A C R O S                                                              */
@@ -96,6 +105,7 @@ int  setLogFileName( const char* name ) ;
 /*                                                                            */
 /*  name:                                                                     */
 /*    loggerFunc                                                              */
+/*                                                */
 /*  attributes:                                                               */
 /*    line : nr of the source line (set in logger macro)                      */
 /*    file : source file name      (set in logger macro)                      */
@@ -103,10 +113,12 @@ int  setLogFileName( const char* name ) ;
 /*    id   : log message id        (passed through logger macro)              */
 /*    lev  : log message level     (set by pragma in logger macro)            */
 /*    msg  : message               (set by sprintf in logger macro)           */
+/*                                      */
 /*  description:                                                              */
 /*    formted output to log file. loggerFunc can only be called from          */
 /*    logger macro (ctl.h), all attributes except >id< are produced in        */
 /*    logger macro                                                            */
+/*                                          */
 /*  return code:                                                              */
 /*    return code is opened for future purposes, at the moment loggerFunc     */
 /*    always returns 0                                                        */
@@ -165,6 +177,44 @@ int loggerFunc( const int   line,  // source file line of the logger macro
   getLogTime( timeStr ) ;
 
   // -------------------------------------------------------
+  // set unset multi line flag
+  // -------------------------------------------------------
+  switch( id )
+  {
+    case LSYS_MULTILINE_START:
+    {
+      _gMultiLine = MULTI_LINE_ON ;
+      break;
+    }
+    case LSYS_MULTILINE_ADD  :
+    {
+      break;
+    }
+    case LSYS_MULTILINE_END  :
+    {
+      _gMultiLine = MULTI_LINE_OFF ;
+      break;
+    }
+    default:
+    {
+      if( _gMultiLine == MULTI_LINE_OFF ) 
+      {
+	break;
+      }
+      else
+      {
+        loggerFunc( line                              ,
+                    file                              ,
+                    func                              ,
+                    LSYS_MULTILINE_END                , 
+                    LEV_LSYS_MULTILINE_END            , 
+                    "multi file forced switched off" );
+      }
+      break;
+    }
+  }
+
+  // -------------------------------------------------------
   // check for function entry / exit 
   // -------------------------------------------------------
   flowFlag = 0 ;
@@ -214,20 +264,35 @@ int loggerFunc( const int   line,  // source file line of the logger macro
   // -------------------------------------------------------
   else
   {
-    snprintf( lineBuffer, LOG_BUFFER_LINE_SIZE  ,
-                          "%s %6d %05d %s %s\n" ,
-                          timeStr               ,
-                          pid                   ,
-                          id                    ,
-                          _gLoggerLevel[lev]    ,
-                          msg )                 ;
-
-    snprintf( dbgBuffer, LOG_BUFFER_LINE_SIZE           ,
-                         "%s %s() in %s (line: %05d)\n" ,
-                         SPACE_OFFSET                   ,
-                         func                           ,
-                         file                           ,
-                         line                          );
+    if( _gMultiLine == LSYS_MULTILINE_ADD )
+    {
+      snprintf( lineBuffer, LOG_BUFFER_LINE_SIZE     ,
+                            "%s %6d %5.5s %3.3s %s\n",
+                            timeStr                  ,
+                            pid                      ,
+                            " "                      ,
+                            " "                      ,
+                            msg )                    ;
+ 
+      dbgBuffer[0] = '\0' ;
+    }
+    else
+    {
+      snprintf( lineBuffer, LOG_BUFFER_LINE_SIZE  ,
+                            "%s %6d %05d %s %s\n" ,
+                            timeStr               ,
+                            pid                   ,
+                            id                    ,
+                            _gLoggerLevel[lev]    ,
+                            msg )                 ;
+  
+      snprintf( dbgBuffer, LOG_BUFFER_LINE_SIZE           ,
+                           "%s %s() in %s (line: %05d)\n" ,
+                           SPACE_OFFSET                   ,
+                           func                           ,
+                           file                           ,
+                           line                          );
+    }
   }
 
   // -------------------------------------------------------
@@ -243,7 +308,7 @@ int loggerFunc( const int   line,  // source file line of the logger macro
     fprintf( _gLogFP, "%s", dbgBuffer ) ;
   }
 
-  _door_cache:
+//_door_cache:
 
   // -------------------------------------------------------
   // fill logger cache
@@ -364,12 +429,15 @@ void getLogTime( char *timeStr )
 /*                                                                            */
 /*  name:                                                                     */
 /*    dumpFunc                                                                */
+/*                                    */
 /*  attributes:                                                               */
 /*    line   : nr of the source line (set in logger macro)                    */
 /*    file   : source file name      (set in logger macro)                    */
 /*    func   : function name         (set in logger macro)                    */
 /*    offset : offset to value                                                */
+/*                                  */
 /*    msg  : message                 (list of key,value )                     */
+/*                              */
 /******************************************************************************/
 int dumpFunc( char* _offset             ,   // print offset to value
               char _msg[][DMP_ITEM_LEN] )   // message to be dumped
