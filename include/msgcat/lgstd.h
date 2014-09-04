@@ -75,6 +75,10 @@
 #define LEV_LSTD_FORK_FAILED    CRI
 #define TXT_LSTD_FORK_FAILED    "fork failed"
 
+#define     LSTD_MAKE_DIR_FAILED    119
+#define LEV_LSTD_MAKE_DIR_FAILED    ERR
+#define TXT_LSTD_MAKE_DIR_FAILED    "make direrctory %s failed"
+
 #define     LSTD_MEM_ALLOC_ERROR    120
 #define LEV_LSTD_MEM_ALLOC_ERROR    CRI
 #define TXT_LSTD_MEM_ALLOC_ERROR    "can not allocate memory"
