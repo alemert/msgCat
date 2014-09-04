@@ -38,4 +38,4 @@
 0.5.08 xml xpath not found messages added
 0.5.09 uknown selector added to lqmqev.h
 0.5.10 empty queue message added to lqmqev.h
-0.5.11 mkdir failed added to lgstd.h
+0.5.11 mkdir failed & file copied added to lgstd.h

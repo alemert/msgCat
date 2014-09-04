@@ -115,6 +115,10 @@
 #define LEV_LSTD_UNKNOWN_INI_ATTR_ERR   ERR
 #define TXT_LSTD_UNKNOWN_INI_ATTR_ERR   "ini file attribute %s not found"
 
+#define     LSTD_FILE_COPIED   129
+#define LEV_LSTD_FILE_COPIED   LOG
+#define TXT_LSTD_FILE_COPIED   "file %s copied to %s" 
+
 #define     LSTD_INI_SYNTAX_ERROR    200
 #define LEV_LSTD_INI_SYNTAX_ERROR    ERR
 #define TXT_LSTD_INI_SYNTAX_ERROR    "ini file syntax error near %s" 
