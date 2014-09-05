@@ -123,6 +123,14 @@
 #define LEV_LSTD_OPEN_PIPE_FAILED   ERR
 #define TXT_LSTD_OPEN_PIPE_FAILED   "failed to open pipe"
 
+#define     LSTD_CHILD_ENDED_OK     131
+#define LEV_LSTD_CHILD_ENDED_OK   LOG
+#define TXT_LSTD_CHILD_ENDED_OK   "child %s ended ok"
+
+#define     LSTD_CHILD_ENDED_ERR   132
+#define LEV_LSTD_CHILD_ENDED_ERR   ERR
+#define TXT_LSTD_CHILD_ENDED_ERR   "child %s ended with error (rc=%d)"
+
 #define     LSTD_INI_SYNTAX_ERROR    200
 #define LEV_LSTD_INI_SYNTAX_ERROR    ERR
 #define TXT_LSTD_INI_SYNTAX_ERROR    "ini file syntax error near %s" 
