@@ -87,5 +87,12 @@
 #define LEV_LMQM_LOG_NAME    LOG    
 #define TXT_LMQM_LOG_NAME    "transactional log %s: %s"
 
+#define     LMQM_ACTIVE_LOG    1132
+#define LEV_LMQM_ACTIVE_LOG    LOG    
+#define TXT_LMQM_ACTIVE_LOG    "transactional log %s is active"
+
+#define     LMQM_INACTIVE_LOG    1132
+#define LEV_LMQM_INACTIVE_LOG    LOG    
+#define TXT_LMQM_INACTIVE_LOG    "transactional log %s is inactive"
 
 #endif
