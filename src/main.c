@@ -36,7 +36,7 @@ void printAllMsg(    tMsgItem *anchor ) ;
 void printDefineMsg( tMsgItem *anchor, char *attrValue ) ;
 void printClassMsg(  tMsgItem *anchor, char *attrValue ) ;
 void printClassList( tMsgItem *anchor ) ;
-void printIdMsg(     tMsgItem *anchor, int id ) ;
+void printIdMsg(     tMsgItem *anchor, unsigned int id ) ;
 
 /******************************************************************************/
 /*                                                                            */
@@ -237,7 +237,7 @@ void printClassList( tMsgItem *anchor )
 /******************************************************************************/
 /* print a list of all message classes                                        */
 /******************************************************************************/
-void printIdMsg( tMsgItem *anchor, int id ) 
+void printIdMsg( tMsgItem *anchor, unsigned int id ) 
 {
   tMsgItem *p ;
  
