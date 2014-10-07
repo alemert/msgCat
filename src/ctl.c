@@ -134,9 +134,9 @@ int loggerFunc( const int   line,  // source file line of the logger macro
   // -------------------------------------------------------
   // local buffer for building log message
   // -------------------------------------------------------
-  char lineBuffer[LOG_BUFFER_LINE_SIZE]; // local line buffer
-  char dbgBuffer[LOG_BUFFER_LINE_SIZE] ; // local line buffer(detail)
-  char flowBuffer[LOG_BUFFER_LINE_SIZE]; // buffer flow for fuction entry/exit
+  char lineBuffer[LOG_BUFFER_LINE_SIZE+1]; // local line buffer
+  char dbgBuffer[LOG_BUFFER_LINE_SIZE+1] ; // local line buffer(detail)
+  char flowBuffer[LOG_BUFFER_LINE_SIZE+1]; // buffer flow for fuction entry/exit
   char timeStr[TIME_STR_LNG] ;           // buffer for time 
                                          //
   #if(0)
@@ -223,13 +223,15 @@ int loggerFunc( const int   line,  // source file line of the logger macro
     case LSYS_FUNC_ENTRY :
     {
       flowFlag = 1 ;
-      sprintf( flowBuffer, FLW_LSYS_FUNC_ENTRY, func, file, line ) ;
+      snprintf( flowBuffer, LOG_BUFFER_LINE_SIZE, 
+                            FLW_LSYS_FUNC_ENTRY, func, file, line ) ;
       break ;
     }
     case LSYS_FUNC_EXIT :
     {
       flowFlag = 1 ;
-      sprintf( flowBuffer, FLW_LSYS_FUNC_EXIT, func, file, line ) ;
+      snprintf( flowBuffer, LOG_BUFFER_LINE_SIZE,
+                            FLW_LSYS_FUNC_EXIT, func, file, line ) ;
       break ;
     }
     default :
