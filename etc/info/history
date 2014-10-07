@@ -42,3 +42,4 @@
 0.6.00 multi line functionality build, not tested
 0.6.01 active & inactive trans log messages added
 0.6.02 message read counter added 
+0.7.00 bug _gBufferCache overflow
