@@ -548,5 +548,5 @@ int logStr2lev( const char *str )
     if( _gLoggerLevel[i] == NULL ) continue ;
     if( strcmp( str, _gLoggerLevel[i]) == 0 ) return i ;
   } 
-  return NOK ;
+  return LNA ;
 }
