@@ -39,10 +39,9 @@
 // ---------------------------------------------------------
 // log defaults
 // ---------------------------------------------------------
-#define DEFAULT_LOG_LEVEL      ERR
-#define LOG_BUFFER_LINE_SIZE   256
-//#define LOG_BUFFER_CACHE_SIZE  512
-#define LOG_BUFFER_CACHE_SIZE  64
+#define DEFAULT_LOG_LEVEL       ERR
+#define LOG_BUFFER_LINE_SIZE    256
+#define LOG_BUFFER_CACHE_SIZE  1024
 
 #define DMP_ITEM_LEN           100
 
