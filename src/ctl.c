@@ -510,7 +510,8 @@ int dumpFunc( char* _offset             ,   // print offset to value
             LOG_BUFFER_LINE_SIZE )            ;
     _gBufferCacheIndex++ ;
 
-    if( _gBufferCacheIndex > LOG_BUFFER_CACHE_SIZE ) _gBufferCacheIndex = 0 ;
+    if( _gBufferCacheIndex > LOG_BUFFER_CACHE_SIZE ) 
+      _gBufferCacheIndex = 0 ;
   }
 
   // -------------------------------------------------------
@@ -523,7 +524,8 @@ int dumpFunc( char* _offset             ,   // print offset to value
           LOG_BUFFER_LINE_SIZE )            ;
   _gBufferCacheIndex++ ;
 
-  if( _gBufferCacheIndex > LOG_BUFFER_CACHE_SIZE ) _gBufferCacheIndex = 0 ;
+  if( _gBufferCacheIndex > LOG_BUFFER_CACHE_SIZE )
+    _gBufferCacheIndex = 0 ;
 
   _door :
 
