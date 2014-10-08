@@ -293,11 +293,11 @@ int loggerFunc( const int   line,  // source file line of the logger macro
   if( _gMaxLevel >= lev || lev < MIN_LOG_LEVEL )
   {
     fprintf( _gLogFP, "%s", lineBuffer ) ;
-  }
 
-  if( _gMaxLevel > LOG )
-  {
-    fprintf( _gLogFP, "%s", dbgBuffer ) ;
+    if( _gMaxLevel > LOG )
+    {
+      fprintf( _gLogFP, "%s", dbgBuffer ) ;
+    }
   }
 
 //_door_cache:

@@ -14,3 +14,5 @@ ver 0.4.08 bugs found by cppcheck, str2lev added
 ver 0.4.09 bug not logging enter / exit function at level FLW solved
 ver 0.4.11 bug dumper does not work, error in logFunc dump on critical
 ver 0.4.13 bug dbgBuffer if false test writing into _gBufferCache
+ver 0.7.01 bug _gBufferCache overflow && source / file logged without kernel line
+
