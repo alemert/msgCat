@@ -32,6 +32,7 @@
 #define MLT   4            // multiline output enabled
 #define CRI   1            // critical (abort program)
 #define SYS   0            // system (base program information)
+#define NOK (-1)           // Unknown level
 
 #define MIN_LOG_LEVEL 2    // every level less then this 
                            //  will be logged in any case

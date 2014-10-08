@@ -44,3 +44,5 @@
 0.6.02 message read counter added 
 0.7.00 bug _gBufferCache overflow
 0.7.01 bug _gBufferCache overflow && source / file logged without kernel line
+0.8.00 return logStr2lev changed, NOK added
+
