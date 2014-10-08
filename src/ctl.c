@@ -270,11 +270,11 @@ int loggerFunc( const int   line,  // source file line of the logger macro
     {
       snprintf( lineBuffer, LOG_BUFFER_LINE_SIZE     ,
                             "%s %6d %5.5s %3.3s %s\n",
-                            timeStr                  ,
-                            pid                      ,
-                            " "                      ,
-                            " "                      ,
-                            msg )                    ;
+                            timeStr                  ,  // %s
+                            pid                      ,  // %6d 
+                            " "                      ,  // %5.5s
+                            " "                      ,  // %3.3s 
+                            msg )                    ;  // %s
  
       dbgBuffer[0] = '\0' ;
     }
@@ -282,18 +282,18 @@ int loggerFunc( const int   line,  // source file line of the logger macro
     {
       snprintf( lineBuffer, LOG_BUFFER_LINE_SIZE  ,
                             "%s %6d %05d %s %s\n" ,
-                            timeStr               ,
-                            pid                   ,
-                            id                    ,
-                            _gLoggerLevel[lev]    ,
-                            msg )                 ;
+                            timeStr               ,  // %s 
+                            pid                   ,  // %6d
+                            id                    ,  // %05d
+                            _gLoggerLevel[lev]    ,  // %s
+                            msg )                 ;  // %s
   
-      snprintf( dbgBuffer, LOG_BUFFER_LINE_SIZE           ,
-                           "%s %s() in %s (line: %05d)\n" ,
-                           SPACE_OFFSET                   ,
-                           func                           ,
-                           file                           ,
-                           line                          );
+      snprintf( dbgBuffer, LOG_BUFFER_LINE_SIZE           ,  //
+                           "%s %s() in %s (line: %05d)\n" ,  //
+                           SPACE_OFFSET                   ,  // %s 
+                           func                           ,  // %s()
+                           file                           ,  // %s 
+                           line                          );  // %05d
     }
   }
 
