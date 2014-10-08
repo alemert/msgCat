@@ -139,16 +139,6 @@ int loggerFunc( const int   line,  // source file line of the logger macro
   char flowBuffer[LOG_BUFFER_LINE_SIZE+1]; // buffer flow for fuction entry/exit
   char timeStr[TIME_STR_LNG] ;           // buffer for time 
                                          //
-  #if(0)
-  // -------------------------------------------------------
-  // static buffer for dumping cashed messages in case of CRI errors
-  // -------------------------------------------------------
-  static char _sBufferCache[LOG_BUFFER_CACHE_SIZE] // circular cache for last 
-                           [LOG_BUFFER_LINE_SIZE]; // LOG_BUFFER_CACHE_SIZE msg
-  static int  _sBufferCacheIndex = 0 ;             // actual line index for 
-                                                   // circular cache
-  #endif
-
   // -------------------------------------------------------
   // other vara
   // -------------------------------------------------------
