@@ -452,8 +452,8 @@ int dumpFunc( char* _offset             ,   // print offset to value
 
 //char buff[DMP_ITEM_LEN*2+1] ;
 //char separator[DMP_ITEM_LEN*2+1] ;
-  char buff[LOG_BUFFER_CACHE_SIZE+1] ;
-  char separator[LOG_BUFFER_CACHE_SIZE+1] ;
+  char buff[LOG_BUFFER_LINE_SIZE+1] ;
+  char separator[LOG_BUFFER_LINE_SIZE+1] ;
   
   // -------------------------------------------------------
   // init 
