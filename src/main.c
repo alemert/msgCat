@@ -77,7 +77,7 @@ int main(int argc, const char* argv[] )
   // -------------------------------------------------------
   // handle cmdln attr --define
   // -------------------------------------------------------
-  if( (attrValue = getStrAttr( "define" )) )
+  if( (attrValue = (char*) getStrAttr( "define" ) ))
   {
     printDefineMsg( msgAnchor, attrValue ) ;
     goto _door ;
@@ -86,7 +86,7 @@ int main(int argc, const char* argv[] )
   // -------------------------------------------------------
   // handle cmdln attr --class
   // -------------------------------------------------------
-  if( (attrValue = getStrAttr( "class" )) )
+  if( (attrValue = (char*)getStrAttr( "class" )) )
   {
     if( strcmp( attrValue, "?" ) == 0 )
     {
