@@ -187,6 +187,22 @@
 #define LEV_LSTD_XML_XPATH_INF  INF
 #define TXT_LSTD_XML_XPATH_INF  "XML path %s not found"
 
+#define     LSTD_XML_REGEX_CC_ERR  214
+#define LEV_LSTD_XML_REGEX_CC_ERR  ERR
+#define TXT_LSTD_XML_REGEX_CC_ERR  "regular expression compile error %s" 
+
+#define     LSTD_XML_REGEX_EXEC_ERR  215
+#define LEV_LSTD_XML_REGEX_EXEC_ERR  ERR
+#define TXT_LSTD_XML_REGEX_EXEC_ERR  "regular expression execute error %s" 
+
+#define     LSTD_XML_REGEX_NO_MATCH  216
+#define LEV_LSTD_XML_REGEX_NO_MATCH  INF
+#define TXT_LSTD_XML_REGEX_NO_MATCH  "regular expression does not match" 
+
+#define     LSTD_XML_REGEX_NO_MATCH_ERR  217
+#define LEV_LSTD_XML_REGEX_NO_MATCH_ERR  ERR
+#define TXT_LSTD_XML_REGEX_NO_MATCH_ERR  "regular expression does not match" 
+
 /******************************************************************************/
 /*   M A C R O S                                                              */
 /******************************************************************************/
