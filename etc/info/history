@@ -47,3 +47,5 @@
 0.8.00 return logStr2lev changed, NOK added
 0.8.01 increase circular buffer to 1024
 0.8.02 new regex xml messages
+0.8.03 new xml root not found messages
+

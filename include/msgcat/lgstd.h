@@ -203,6 +203,10 @@
 #define LEV_LSTD_XML_REGEX_NO_MATCH_ERR  ERR
 #define TXT_LSTD_XML_REGEX_NO_MATCH_ERR  "regular expression does not match" 
 
+#define     LSTD_XML_NO_ROOT_NODE  218
+#define LEV_LSTD_XML_NO_ROOT_NODE  ERR
+#define TXT_LSTD_XML_NO_ROOT_NODE  "XML root %s node found" 
+
 /******************************************************************************/
 /*   M A C R O S                                                              */
 /******************************************************************************/
