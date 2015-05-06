@@ -55,7 +55,7 @@ include $(MAKE_INCLUDE_PATH)/general.modules.mk
 # ------------------------------------------------------------------------------
 
 $(CAT_SRC_PATH)/catalogrc.c : $(CATALOG.H)
-	bin/crtRcRc.pl $@ $^ 
+	$(TOOL_SCRIPT)/crtRcRc.pl $@ $^ 
 
 $(CAT_OBJ_PATH)/catalogrc.o : $(CAT_SRC_PATH)/catalogrc.c $(MAKEFILE)
 	$(CC) $(CCOPT) $< -o $@
