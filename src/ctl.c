@@ -550,3 +550,20 @@ int logStr2lev( const char *str )
   } 
   return LNA ;
 }
+
+/******************************************************************************/
+/*  rotate log files                                                          */
+/*                                                                            */
+/*  description:                                                              */
+/*    if the maximal log file size has been reached rotate log file           */
+/******************************************************************************/
+int rotateLogFile()
+{
+  char* p;
+
+  p = _gLogFileName + strlen( _gLogFileName );
+  for( ; *p > _gLogFileName; p-- )
+  {
+    if( *p != '.' ) break;
+  }
+}
