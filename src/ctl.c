@@ -12,7 +12,8 @@
 /*   - getLogTime                                                             */
 /*   - dumpFunc                                                               */
 /*   - textornull                                                             */
-/*   - logStr2lev                            */
+/*   - logStr2lev                                                             */
+/*   - rotateLogFile                                                */
 /*                                                                            */
 /******************************************************************************/
 
@@ -32,6 +33,8 @@
 #include <unistd.h>
 #include <time.h>
 #include <errno.h>
+#include <limits.h>
+#include <sys/stat.h>
 
 // ---------------------------------------------------------
 // own 
@@ -59,6 +62,12 @@
 #define MULTI_LINE_ON       1
 #define MULTI_LINE_OFF      0
 
+// ---------------------------------------------------------
+// rotate log files
+// ---------------------------------------------------------
+#define MAX_FILE_SIZE   2*1024*1024      // 2MB
+#define MAX_FILE_NR     4
+
 /******************************************************************************/
 /*   G L O B A L S                                                            */
 /******************************************************************************/
@@ -76,7 +85,7 @@ char *_gLoggerLevel[] = { [FLW]="FLW",
 
 int _gMaxLevel = DEFAULT_LOG_LEVEL ;
 
-char _gLogFileName[256] ;
+char _gLogFileName[PATH_MAX] ;
 
 FILE *_gLogFP ;
 
@@ -86,13 +95,13 @@ int _gMultiLine = MULTI_LINE_OFF ;
 /*   M A C R O S                                                              */
 /******************************************************************************/
 
-
 /******************************************************************************/
 /*   P R O T O T Y P E S                                                      */
 /******************************************************************************/
 void getLogTime( char *timeStr ) ;
 void setMaxLogLevel( int maxLevel ) ;
 int  setLogFileName( const char* name ) ;
+void rotateLogFile( );
 
 /******************************************************************************/
 /*                                                                            */
@@ -105,20 +114,20 @@ int  setLogFileName( const char* name ) ;
 /*                                                                            */
 /*  name:                                                                     */
 /*    loggerFunc                                                              */
-/*                                                */
+/*                                                                            */
 /*  attributes:                                                               */
-/*    line : nr of the source line (set in logger macro)                      */
+/*    line : number of the source line (set in logger macro)                  */
 /*    file : source file name      (set in logger macro)                      */
 /*    func : function name         (set in logger macro)                      */
 /*    id   : log message id        (passed through logger macro)              */
 /*    lev  : log message level     (set by pragma in logger macro)            */
 /*    msg  : message               (set by sprintf in logger macro)           */
-/*                                      */
+/*                                            */
 /*  description:                                                              */
-/*    formted output to log file. loggerFunc can only be called from          */
+/*    formated output to log file. loggerFunc can only be called from         */
 /*    logger macro (ctl.h), all attributes except >id< are produced in        */
 /*    logger macro                                                            */
-/*                                          */
+/*                                            */
 /*  return code:                                                              */
 /*    return code is opened for future purposes, at the moment loggerFunc     */
 /*    always returns 0                                                        */
@@ -353,7 +362,7 @@ int loggerFunc( const int   line,  // source file line of the logger macro
 }
 
 /******************************************************************************/
-/* init logging                                                               */
+/* initialize logging                                                         */
 /******************************************************************************/
 int initLogging( const char* logName, int logLevel )
 {
@@ -362,7 +371,9 @@ int initLogging( const char* logName, int logLevel )
   setMaxLogLevel( logLevel ) ;
 
   sysRc = setLogFileName( logName ) ;
-  
+
+  rotateLogFile( );
+
   return sysRc ;
 }
 /******************************************************************************/
@@ -396,7 +407,7 @@ _door :
 }
 
 /******************************************************************************/
-/* get log file pointer                                                */
+/* get log file pointer                                                       */
 /******************************************************************************/
 FILE* getLogFP()
 {
@@ -423,15 +434,15 @@ void getLogTime( char *timeStr )
 /*                                                                            */
 /*  name:                                                                     */
 /*    dumpFunc                                                                */
-/*                                    */
+/*                                      */
 /*  attributes:                                                               */
 /*    line   : nr of the source line (set in logger macro)                    */
 /*    file   : source file name      (set in logger macro)                    */
 /*    func   : function name         (set in logger macro)                    */
 /*    offset : offset to value                                                */
-/*                                  */
+/*                                    */
 /*    msg  : message                 (list of key,value )                     */
-/*                              */
+/*                                */
 /******************************************************************************/
 int dumpFunc( char* _offset             ,   // print offset to value
               char _msg[][DMP_ITEM_LEN] )   // message to be dumped
@@ -557,13 +568,78 @@ int logStr2lev( const char *str )
 /*  description:                                                              */
 /*    if the maximal log file size has been reached rotate log file           */
 /******************************************************************************/
-int rotateLogFile()
+void rotateLogFile( )
 {
+  struct stat fStat ;
+
+  char  baseFileName[PATH_MAX];
+  char  highFile[PATH_MAX];
+  char  lowFile[PATH_MAX];
   char* p;
 
-  p = _gLogFileName + strlen( _gLogFileName );
-  for( ; *p > _gLogFileName; p-- )
-  {
-    if( *p != '.' ) break;
-  }
+  int i;
+
+  // ---------------------------------------------------------------------------
+  //  check if base file has reached max size 
+  // -----------------------------------------------
+  if( stat( _gLogFileName, &fStat ) < 0 )       // get file information
+  {                                             // if any error, return 
+    goto _door ;                                //  from function
+  }                                             //
+                                                //
+  if( (int)(fStat.st_size) < MAX_FILE_SIZE )    //
+  {                                             //
+    goto _door ;                                //
+  }                                             //
+                                                //
+  // -----------------------------------------------
+  // get the bas file name
+  // -----------------------------------------------
+  strncpy(baseFileName,_gLogFileName,PATH_MAX); //
+                                                //
+  p = baseFileName + strlen( baseFileName );    // end of string address; go
+  for( ; p > baseFileName; p-- )                // backwards through the string
+  {                                             //
+    if( *p != '.' ) break;                      // until '.' (start of suffix) 
+  }                                             //  has been found
+                                                //
+  if( p == baseFileName ) goto _door;           // '.' (suffix) not found, 
+                                                // quit function
+   p++      ;                                   // new string ends after '.'
+  *p = '\0' ;                                   // suffix has been cut off
+                                                //
+  // -----------------------------------------------
+  // rename files (low file to high file)
+  // -----------------------------------------------
+  for( i=MAX_FILE_NR; i>0; i-- )                //
+  {                                             //
+    snprintf( highFile, PATH_MAX, "%s/%d.log", baseFileName, i );
+    snprintf( lowFile , PATH_MAX, "%s/%d.log", baseFileName, i );
+                                                // 
+    if( stat( highFile, &fStat ) == 0 )         // remove the high file
+    {                                           //
+      unlink( highFile );                       //
+    }                                           //
+                                                //
+    if( stat( lowFile, &fStat ) == 0 )          // link low file to high file
+    {                                           //
+      link( lowFile, highFile );                //
+    }                                           //
+  }                                             //
+                                                //
+  // -----------------------------------------------
+  // handling base file (without the counter)
+  // -----------------------------------------------
+  snprintf( highFile, PATH_MAX, "%s/%d.log", baseFileName, 0 );
+                                                //
+  if( stat( highFile, &fStat ) == 0 )           // remove the high file
+  {                                             //
+    unlink( highFile );                         //
+  }                                             //
+                                                //
+  link( _gLogFileName, highFile );              //
+                                                //
+  _door:
+
+  return ;
 }
