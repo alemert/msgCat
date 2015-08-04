@@ -13,7 +13,7 @@
 /*   - dumpFunc                                                               */
 /*   - textornull                                                             */
 /*   - logStr2lev                                                             */
-/*   - rotateLogFile                                                */
+/*   - rotateLogFile                                                          */
 /*                                                                            */
 /******************************************************************************/
 
@@ -24,6 +24,8 @@
 // ---------------------------------------------------------
 // system
 // ---------------------------------------------------------
+ #define _GNU_SOURCE
+
 // ---------------------------------------------------------
 // system include
 // ---------------------------------------------------------
@@ -374,6 +376,8 @@ int initLogging( const char* logName, int logLevel )
 
   rotateLogFile( );
 
+  logger( LSTD_PRG_START, program_invocation_short_name  );
+
   return sysRc ;
 }
 /******************************************************************************/
@@ -496,7 +500,7 @@ int dumpFunc( char* _offset             ,   // print offset to value
                                            _msg[i+1]        ) ;
 
     // -----------------------------------------------------
-    // write flow and dbg if level high enought
+    // write flow and debug if level high enough
     // -----------------------------------------------------
     if( _gMaxLevel >= DBG ) 
     {
@@ -516,7 +520,7 @@ int dumpFunc( char* _offset             ,   // print offset to value
   }
 
   // -------------------------------------------------------
-  // haus keeping
+  // house keeping
   // -------------------------------------------------------
   if( _gMaxLevel >= DBG ) { fprintf( _gLogFP, "%s", separator ) ; }
 

@@ -48,4 +48,5 @@
 0.08.01 increase circular buffer to 1024
 0.08.02 new regex xml messages
 0.08.03 new xml root not found messages
-0.9.00  rotate log file added
+0.09.00 rotate log file added
+0.10.00 SYS start and stop program moved from lgstd.h to ctl.h

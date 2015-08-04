@@ -19,14 +19,6 @@
 /******************************************************************************/
 /*   D E F I N E S                                                            */
 /******************************************************************************/
-#define     LSTD_PRG_START           100
-#define LEV_LSTD_PRG_START           SYS
-#define TXT_LSTD_PRG_START           "starting %s"
-
-#define     LSTD_PRG_STOP           101
-#define LEV_LSTD_PRG_STOP           SYS
-#define TXT_LSTD_PRG_STOP           "quiting %s"
-
 #define     LSTD_GEN_SYS            102
 #define LEV_LSTD_GEN_SYS            SYS
 #define TXT_LSTD_GEN_SYS            "%s aborted"

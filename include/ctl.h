@@ -76,6 +76,14 @@
 #define LEV_LSYS_MULTILINE_ADD     MLT
 #define TXT_LSYS_MULTILINE_ADD     "END output for %s"
 
+#define     LSTD_PRG_START           100
+#define LEV_LSTD_PRG_START           SYS
+#define TXT_LSTD_PRG_START           "starting %s"
+
+#define     LSTD_PRG_STOP           101
+#define LEV_LSTD_PRG_STOP           SYS
+#define TXT_LSTD_PRG_STOP           "quiting %s"
+
 /******************************************************************************/
 /*   G L O B A L E S                                                          */
 /******************************************************************************/
