@@ -50,3 +50,4 @@
 0.08.03 new xml root not found messages
 0.09.00 rotate log file added
 0.10.00 SYS start and stop program moved from lgstd.h to ctl.h
+0.10.01 SYS errno message added

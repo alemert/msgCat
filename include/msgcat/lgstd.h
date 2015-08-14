@@ -31,6 +31,18 @@
 #define LEV_LSTD_GEN_ERR            ERR
 #define TXT_LSTD_GEN_ERR            "%s aborted"
 
+#define     LSTD_ERRNO_ERR          105 
+#define LEV_LSTD_ERRNO_ERR          ERR
+#define TXT_LSTD_ERRNO_ERR          "system call failed with errno: %d %s"
+
+#define     LSTD_ERRNO_WAR          106 
+#define LEV_LSTD_ERRNO_WAR          WAR
+#define TXT_LSTD_ERRNO_WAR          "system call failed with errno: %d %s"
+
+#define     LSTD_ERRNO_LOG          107 
+#define LEV_LSTD_ERRNO_LOG          LOG
+#define TXT_LSTD_ERRNO_LOG          "system call failed with errno: %d %s"
+
 #define     LSTD_OPEN_FILE_FAILED   110
 #define LEV_LSTD_OPEN_FILE_FAILED   ERR
 #define TXT_LSTD_OPEN_FILE_FAILED   "failed to open file %s"
