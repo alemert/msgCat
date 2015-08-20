@@ -601,7 +601,7 @@ void rotateLogFile( )
   // -----------------------------------------------
   strncpy(baseFileName,_gLogFileName,PATH_MAX); //
                                                 //
-  p = baseFileName + strlen( baseFileName );    // end of string address; go
+  p = baseFileName + strlen( baseFileName ) -1; // end of string address; go
   for( ; p > baseFileName; p-- )                // backwards through the string
   {                                             //
     if( *p != '.' )                             // until '.' (start of suffix) 
