@@ -606,7 +606,6 @@ void rotateLogFile( )
   {                                             //
     if( *p == '.' )                             // until '.' (start of suffix) 
     {                                           //  has been found
-      *(p+1) = '\0';                            //
       break;                                    //
     }                                           //
   }                                             //
