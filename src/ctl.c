@@ -604,7 +604,7 @@ void rotateLogFile( )
   p = baseFileName + strlen( baseFileName ) -1; // end of string address; go
   for( ; p > baseFileName; p-- )                // backwards through the string
   {                                             //
-    if( *p != '.' )                             // until '.' (start of suffix) 
+    if( *p == '.' )                             // until '.' (start of suffix) 
     {                                           //  has been found
       *(p+1) = '\0';                            //
       break;                                    //
