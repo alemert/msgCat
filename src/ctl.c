@@ -637,14 +637,15 @@ void rotateLogFile( )
   // -----------------------------------------------
   // handling base file (without the counter)
   // -----------------------------------------------
-  snprintf( highFile, PATH_MAX, "%s/%d.log", baseFileName, 0 );
+  snprintf( highFile, PATH_MAX, "%s%d.log", baseFileName, 0 );
                                                 //
   if( stat( highFile, &fStat ) == 0 )           // remove the high file
   {                                             //
     unlink( highFile );                         //
   }                                             //
                                                 //
-  link( _gLogFileName, highFile );              //
+  link(   _gLogFileName , highFile );           //
+  unlink( _gLogFileName );
                                                 //
   _door:
 
