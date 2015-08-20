@@ -604,8 +604,12 @@ void rotateLogFile( )
   p = baseFileName + strlen( baseFileName );    // end of string address; go
   for( ; p > baseFileName; p-- )                // backwards through the string
   {                                             //
-    if( *p != '.' ) break;                      // until '.' (start of suffix) 
-  }                                             //  has been found
+    if( *p != '.' )                             // until '.' (start of suffix) 
+    {                                           //  has been found
+      *(p+1) = '\0';                            //
+      break;                                    //
+    }                                           //
+  }                                             //
                                                 //
   if( p == baseFileName ) goto _door;           // '.' (suffix) not found, 
                                                 // quit function
@@ -617,8 +621,8 @@ void rotateLogFile( )
   // -----------------------------------------------
   for( i=MAX_FILE_NR; i>0; i-- )                //
   {                                             //
-    snprintf( highFile, PATH_MAX, "%s/%d.log", baseFileName, i );
-    snprintf( lowFile , PATH_MAX, "%s/%d.log", baseFileName, i );
+    snprintf( highFile, PATH_MAX, "%s/%d.log", baseFileName, i   );
+    snprintf( lowFile , PATH_MAX, "%s/%d.log", baseFileName, i-1 );
                                                 // 
     if( stat( highFile, &fStat ) == 0 )         // remove the high file
     {                                           //
