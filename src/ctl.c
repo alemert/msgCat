@@ -620,8 +620,8 @@ void rotateLogFile( )
   // -----------------------------------------------
   for( i=MAX_FILE_NR; i>0; i-- )                //
   {                                             //
-    snprintf( highFile, PATH_MAX, "%s/%d.log", baseFileName, i   );
-    snprintf( lowFile , PATH_MAX, "%s/%d.log", baseFileName, i-1 );
+    snprintf( highFile, PATH_MAX, "%s.%d.log", baseFileName, i   );
+    snprintf( lowFile , PATH_MAX, "%s.%d.log", baseFileName, i-1 );
                                                 // 
     if( stat( highFile, &fStat ) == 0 )         // remove the high file
     {                                           //
