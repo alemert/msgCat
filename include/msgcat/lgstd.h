@@ -211,6 +211,14 @@
 #define LEV_LSTD_XML_NO_ROOT_NODE  ERR
 #define TXT_LSTD_XML_NO_ROOT_NODE  "XML root %s node found" 
 
+#define     LSTD_ZIP_FAILED        300
+#define LEV_LSTD_ZIP_FAILED        ERR
+#define TXT_LSTD_ZIP_FAILED        "compressing file %s failed"
+
+#define     LSTD_ZIPPED        301
+#define LEV_LSTD_ZIPPED        INF
+#define TXT_LSTD_ZIPPED        "file %s has been compressed"
+
 /******************************************************************************/
 /*   M A C R O S                                                              */
 /******************************************************************************/

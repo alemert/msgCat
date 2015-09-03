@@ -52,3 +52,4 @@
 0.10.00 SYS start and stop program moved from lgstd.h to ctl.h
 0.10.01 SYS errno message added
 0.10.02 rotate log file fix
+0.10.03 new message for zip file failed / success
