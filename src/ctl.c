@@ -635,6 +635,11 @@ void rotateLogFile( tRotate rotType )
     }                                           //
   }                                             //
                                                 //
+  if( _gLogFP )
+  {
+    fclose(_gLogFP) ;
+  }
+
   // -----------------------------------------------
   // get the base file name
   // -----------------------------------------------
@@ -707,6 +712,12 @@ void rotateLogFile( tRotate rotType )
     }                                           //
   }                                             //
 
+  _gLogFP = fopen(_gLogFileName,"a");
+  if( _gLogFP == NULL )
+  {
+    perror( _gLogFileName );
+    goto _door ;
+  }
   _door:
 
   return ;
