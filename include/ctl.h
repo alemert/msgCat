@@ -76,6 +76,18 @@
 #define LEV_LSYS_MULTILINE_ADD     MLT
 #define TXT_LSYS_MULTILINE_ADD     "END output for %s"
 
+#define     LSYS_START_NEW_LOG      10
+#define LEV_LSYS_START_NEW_LOG     SYS
+#define TXT_LSYS_START_NEW_LOG     "new log file opened"
+
+#define     LSYS_CONTINUE_NEW_LOG 11
+#define LEV_LSYS_CONTINUE_NEW_LOG SYS
+#define TXT_LSYS_CONTINUE_NEW_LOG "old log closed, continue logging in this one"
+
+#define     LSYS_CLOSE_OLD_LOG    12
+#define LEV_LSYS_CLOSE_OLD_LOG    SYS
+#define TXT_LSYS_CLOSE_OLD_LOG    "close this log, continue in a new one"
+
 #define     LSTD_PRG_START           100
 #define LEV_LSTD_PRG_START           SYS
 #define TXT_LSTD_PRG_START           "starting %s"

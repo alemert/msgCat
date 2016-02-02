@@ -69,6 +69,23 @@
 // ---------------------------------------------------------
 #define MAX_FILE_SIZE   2*1024*1024      // 2MB
 #define MAX_FILE_NR     4
+#define ROTATE_ON_START 1
+#define ROTATE_ON_RUN   2
+
+/******************************************************************************/
+/*   T Y P E S                                                                */
+/******************************************************************************/
+typedef enum eRotate tRotate ;
+
+/******************************************************************************/
+/*   S T R U C T S                                                            */
+/******************************************************************************/
+enum eRotate
+{
+  ignore = 0,
+  start  = 1,
+  run    = 2
+};
 
 /******************************************************************************/
 /*   G L O B A L S                                                            */
@@ -360,6 +377,10 @@ int loggerFunc( const int   line,  // source file line of the logger macro
 #endif
 
   fflush( _gLogFP );
+  if( lev > SYS )
+  {
+    rotateLogFile(run);
+  }
   return 0 ;
 }
 
@@ -553,7 +574,8 @@ const char* textornull( char *text )
 /*  string to level                                                           */
 /*                                                                            */
 /*  description:                                                              */
-/*    convert level string to level intiger                                   */
+/*    convert level string to level integer                                   */
+/*  description:                                                              */
 /******************************************************************************/
 int logStr2lev( const char *str )
 {
@@ -572,7 +594,7 @@ int logStr2lev( const char *str )
 /*  description:                                                              */
 /*    if the maximal log file size has been reached rotate log file           */
 /******************************************************************************/
-void rotateLogFile( )
+void rotateLogFile( tRotate rotType )
 {
   struct stat fStat ;
 
@@ -591,13 +613,30 @@ void rotateLogFile( )
     goto _door ;                                //  from function
   }                                             //
                                                 //
-  if( (int)(fStat.st_size) < MAX_FILE_SIZE )    //
+  switch( rotType )                             //
   {                                             //
-    goto _door ;                                //
+    case ignore: goto _door;                    // do not rotate
+    case start :                                //
+    {                                           //
+      if( (int)(fStat.st_size) < MAX_FILE_SIZE )// rotate if called on start 
+      {                                         //  of the program
+        goto _door ;                            //
+      }                                         //
+      break ;                                   //
+    }                                           //
+    case run :                                  //
+    {                                           //
+      if((int)(fStat.st_size)<MAX_FILE_SIZE*3/2)// rotate if maximal size of 
+      {                                         //  the log file reached
+        goto _door ;                            //
+      }                                         //
+      logger( LSYS_CLOSE_OLD_LOG );             //
+      break ;                                   //
+    }                                           //
   }                                             //
                                                 //
   // -----------------------------------------------
-  // get the bas file name
+  // get the base file name
   // -----------------------------------------------
   strncpy(baseFileName,_gLogFileName,PATH_MAX); //
                                                 //
@@ -645,8 +684,29 @@ void rotateLogFile( )
   }                                             //
                                                 //
   link(   _gLogFileName , highFile );           //
-  unlink( _gLogFileName );
-                                                //
+  unlink( _gLogFileName );                      //
+                         // 
+  // -----------------------------------------------
+  // write in log that new log has been opened
+  // -----------------------------------------------
+  switch( rotType )                             //
+  {                                             //
+    case start:                                 //
+    {                                           //
+      logger( LSYS_START_NEW_LOG );             //
+      break;                                    //
+    }                                           //
+    case run  :                                 //
+    {                                           //
+      logger( LSYS_CONTINUE_NEW_LOG );          //
+      break;                                    //
+    }                                           //
+    case ignore :                               //
+    {                                           //
+      break;                                    //
+    }                                           //
+  }                                             //
+
   _door:
 
   return ;
