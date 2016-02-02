@@ -690,10 +690,17 @@ void rotateLogFile( tRotate rotType )
                                                 //
   link(   _gLogFileName , highFile );           //
   unlink( _gLogFileName );                      //
-                         // 
+                                                // 
   // -----------------------------------------------
-  // write in log that new log has been opened
+  // write in new log that a new log has been opened
   // -----------------------------------------------
+  _gLogFP = fopen(_gLogFileName,"a");           //
+  if( _gLogFP == NULL )                         //
+  {                                             //
+    perror( _gLogFileName );                    //
+    goto _door ;                                //
+  }                                             //
+                                                //
   switch( rotType )                             //
   {                                             //
     case start:                                 //
@@ -712,12 +719,6 @@ void rotateLogFile( tRotate rotType )
     }                                           //
   }                                             //
 
-  _gLogFP = fopen(_gLogFileName,"a");
-  if( _gLogFP == NULL )
-  {
-    perror( _gLogFileName );
-    goto _door ;
-  }
   _door:
 
   return ;
