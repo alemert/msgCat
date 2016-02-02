@@ -395,7 +395,7 @@ int initLogging( const char* logName, int logLevel )
 
   sysRc = setLogFileName( logName ) ;
 
-  rotateLogFile( );
+  rotateLogFile( start );
 
   logger( LSTD_PRG_START, program_invocation_short_name  );
 
