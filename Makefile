@@ -1,5 +1,5 @@
 ################################################################################
-# makefile for test util
+# makefile for message catalog
 ################################################################################
 
 MAKE_INCLUDE_PATH=mk.inc
@@ -49,6 +49,9 @@ ROLLOUT_INC = ctl.h msgcat/lgmqm.h  msgcat/lgstd.h msgcat/lgxym.h \
 # general includes
 # ------------------------------------------------------------------------------
 include $(MAKE_INCLUDE_PATH)/general.modules.mk
+
+$(OBJECT_PATH)/ctl.o: var/vers/include/version.h
+CCOPT += -Ivar/vers/include
 
 # ------------------------------------------------------------------------------
 # additional internal rules

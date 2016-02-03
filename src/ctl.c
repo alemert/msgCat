@@ -14,6 +14,7 @@
 /*   - textornull                                                             */
 /*   - logStr2lev                                                             */
 /*   - rotateLogFile                                                          */
+/*   - catalogVersion            */
 /*                                                                            */
 /******************************************************************************/
 
@@ -43,6 +44,11 @@
 // ---------------------------------------------------------
 #define C_MODULE_LOGGER_CATALOG
 #include "ctl.h"
+
+// ---------------------------------------------------------
+// local
+// ---------------------------------------------------------
+#include <version.h>
 
 /******************************************************************************/
 /*   D E F I N E S                                                            */
@@ -605,6 +611,8 @@ void rotateLogFile( tRotate rotType )
 
   int i;
 
+  int maxFileSize = MAX_FILE_SIZE;
+
   // ---------------------------------------------------------------------------
   //  check if base file has reached max size 
   // -----------------------------------------------
@@ -616,25 +624,42 @@ void rotateLogFile( tRotate rotType )
   switch( rotType )                             //
   {                                             //
     case ignore: goto _door;                    // do not rotate
-    case start :                                //
-    {                                           //
-      if( (int)(fStat.st_size) < MAX_FILE_SIZE )// rotate if called on start 
-      {                                         //  of the program
-        goto _door ;                            //
-      }                                         //
+    case start :                                // rotate if called on start 
+    {                                           //  of the program
       break ;                                   //
     }                                           //
-    case run :                                  //
-    {                                           //
-      if((int)(fStat.st_size)<MAX_FILE_SIZE*3/2)// rotate if maximal size of 
-      {                                         //  the log file reached
-        goto _door ;                            //
-      }                                         //
+    case run :                                  // rotate if maximal size of 
+    {                                           //  the log file reached
+      maxFileSize *= 2;                         //
       logger( LSYS_CLOSE_OLD_LOG );             //
       break ;                                   //
     }                                           //
   }                                             //
                                                 //
+  switch( _gMaxLevel )                          // increase max size depending
+  {                                             //   on the logging level
+    case INF:                                   //
+    {                                           //
+      _gMaxLevel *= 3/2;                        //
+      break;                                    //
+    }                                           //
+    case DBG :                                  //
+    {                                           //
+      _gMaxLevel *= 2;                          //
+      break;                                    //
+    }                                           //
+    case FLW :                                  //
+    {                                           //
+      _gMaxLevel *= 3 ;                         //
+      break;                                    //
+    }                                           //
+  }                                             //
+                                                //
+  if( (int)(fStat.st_size) < maxFileSize )      //
+  {                                             //
+    goto _door ;                                //
+  }
+
   if( _gLogFP )
   {
     fclose(_gLogFP) ;
@@ -710,7 +735,7 @@ void rotateLogFile( tRotate rotType )
     }                                           //
     case run  :                                 //
     {                                           //
-      logger( LSYS_CONTINUE_NEW_LOG );          //
+      logger( LSYS_START_NEW_LOG );          //
       break;                                    //
     }                                           //
     case ignore :                               //
@@ -722,4 +747,12 @@ void rotateLogFile( tRotate rotType )
   _door:
 
   return ;
+}
+
+/******************************************************************************/
+/*  catalog version                                                           */
+/******************************************************************************/
+const char* catalogVersion()
+{
+  return MAJOR_VER"."MINOR_VER"."FIX_VER"."BUILD_VER ;
 }
