@@ -729,13 +729,9 @@ void rotateLogFile( tRotate rotType )
   switch( rotType )                             //
   {                                             //
     case start:                                 //
-    {                                           //
-      logger( LSYS_START_NEW_LOG );             //
-      break;                                    //
-    }                                           //
     case run  :                                 //
     {                                           //
-      logger( LSYS_START_NEW_LOG );          //
+      logger( LSYS_START_NEW_LOG );             //
       break;                                    //
     }                                           //
     case ignore :                               //
