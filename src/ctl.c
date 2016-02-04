@@ -640,17 +640,17 @@ void rotateLogFile( tRotate rotType )
   {                                             //   on the logging level
     case INF:                                   //
     {                                           //
-      _gMaxLevel *= 3/2;                        //
+      maxFileSize *= 3/2;                        //
       break;                                    //
     }                                           //
     case DBG :                                  //
     {                                           //
-      _gMaxLevel *= 2;                          //
+      maxFileSize *= 2;                          //
       break;                                    //
     }                                           //
     case FLW :                                  //
     {                                           //
-      _gMaxLevel *= 3 ;                         //
+      maxFileSize *= 3 ;                         //
       break;                                    //
     }                                           //
   }                                             //
