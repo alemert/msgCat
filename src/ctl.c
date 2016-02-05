@@ -631,7 +631,6 @@ void rotateLogFile( tRotate rotType )
     case run :                                  // rotate if maximal size of 
     {                                           //  the log file reached
       maxFileSize *= 2;                         //
-      logger( LSYS_CLOSE_OLD_LOG );             //
       break ;                                   //
     }                                           //
   }                                             //
@@ -659,6 +658,8 @@ void rotateLogFile( tRotate rotType )
   {                                             //
     goto _door ;                                //
   }
+
+  if( rotType == run ) logger( LSYS_CLOSE_OLD_LOG );     
 
   if( _gLogFP )
   {
