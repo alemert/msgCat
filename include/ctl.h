@@ -169,3 +169,4 @@ FILE* getLogFP() ;
 const char* textornull( char *text ) ;
 int logStr2lev( const char *str );
 const char* catalogVersion();
+void stopLogging();

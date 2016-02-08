@@ -57,3 +57,4 @@
 0.11.00 rotate log improved, rotate if processes runs
 0.12.00 rotate log size depending on logging level
 0.13.00 stop logging function added
+0.13.01 set fp to null in stop logging
