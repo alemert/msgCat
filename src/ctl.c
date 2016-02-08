@@ -14,7 +14,8 @@
 /*   - textornull                                                             */
 /*   - logStr2lev                                                             */
 /*   - rotateLogFile                                                          */
-/*   - catalogVersion            */
+/*   - catalogVersion                                          */
+/*   - stopLogging                            */
 /*                                                                            */
 /******************************************************************************/
 
@@ -752,4 +753,12 @@ void rotateLogFile( tRotate rotType )
 const char* catalogVersion()
 {
   return MAJOR_VER"."MINOR_VER"."FIX_VER"."BUILD_VER ;
+}
+
+/******************************************************************************/
+/*   stop logging              */
+/******************************************************************************/
+void stopLogging()
+{
+  fclose(_gLogFP);
 }
