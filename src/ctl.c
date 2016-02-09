@@ -14,8 +14,8 @@
 /*   - textornull                                                             */
 /*   - logStr2lev                                                             */
 /*   - rotateLogFile                                                          */
-/*   - catalogVersion                                          */
-/*   - stopLogging                            */
+/*   - catalogVersion                                                         */
+/*   - stopLogging                                                    */
 /*                                                                            */
 /******************************************************************************/
 
@@ -587,6 +587,7 @@ const char* textornull( char *text )
 int logStr2lev( const char *str )
 {
   int i;
+  if( str == NULL ) return LNA ;
   for( i=SYS; i<=FLW; i++ )
   {
     if( _gLoggerLevel[i] == NULL ) continue ;
@@ -760,5 +761,6 @@ const char* catalogVersion()
 /******************************************************************************/
 void stopLogging()
 {
-  fclose(_gLogFP);
+  if( _gLogFP ) fclose(_gLogFP);
+  _gLogFP = NULL ;
 }
