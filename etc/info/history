@@ -60,3 +60,4 @@
 0.13.01 set fp to null in stop logging
 0.13.02 logStr2Lev null pointer exception at start of the function added
 0.13.03 new messages added
+0.14.00 multi line add with out hardcoded text

@@ -78,7 +78,7 @@
 
 #define     LSYS_MULTILINE_ADD      9
 #define LEV_LSYS_MULTILINE_ADD     MLT
-#define TXT_LSYS_MULTILINE_ADD     "END output for %s"
+#define TXT_LSYS_MULTILINE_ADD     "%s"
 
 #define     LSYS_START_NEW_LOG      10
 #define LEV_LSYS_START_NEW_LOG     SYS
