@@ -135,17 +135,25 @@
 #define LEV_LSTD_CHILD_ENDED_ERR          ERR
 #define TXT_LSTD_CHILD_ENDED_ERR          "child %s ended with error (rc=%d)"
 
-#define     LSTD_ERR_WRITING_FILE         132
+#define     LSTD_ERR_WRITING_FILE         133
 #define LEV_LSTD_ERR_WRITING_FILE         ERR
 #define TXT_LSTD_ERR_WRITING_FILE         "error writing file %s" 
 
-#define     LSTD_MAKE_DIR_OK          133
-#define LEV_LSTD_MAKE_DIR_OK          LOG
-#define TXT_LSTD_MAKE_DIR_OK          "make direrctory %s failed"
+#define     LSTD_MAKE_DIR_OK              134
+#define LEV_LSTD_MAKE_DIR_OK              LOG
+#define TXT_LSTD_MAKE_DIR_OK              "make direrctory %s failed"
 
-#define     LSTD_FILE_COPY_ERR              134
-#define LEV_LSTD_FILE_COPY_ERR              ERR
-#define TXT_LSTD_FILE_COPY_ERR              "failed to copy file %s to %s" 
+#define     LSTD_ERR_REMOVE_DIR           135
+#define LEV_LSTD_ERR_REMOVE_DIR           ERR
+#define TXT_LSTD_ERR_REMOVE_DIR           "error writing file %s" 
+
+#define     LSTD_ERR_REMOVE_FILE          136
+#define LEV_LSTD_ERR_REMOVE_FILE          ERR
+#define TXT_LSTD_ERR_REMOVE_FILE          "error writing file %s" 
+
+#define     LSTD_FILE_COPY_ERR            137
+#define LEV_LSTD_FILE_COPY_ERR            ERR
+#define TXT_LSTD_FILE_COPY_ERR            "failed to copy file %s to %s" 
 
 #define     LSTD_INI_SYNTAX_ERROR         200
 #define LEV_LSTD_INI_SYNTAX_ERROR         ERR
