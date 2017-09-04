@@ -139,6 +139,10 @@
 #define LEV_LSTD_ERR_WRITING_FILE         ERR
 #define TXT_LSTD_ERR_WRITING_FILE         "error writing file %s" 
 
+#define     LSTD_MAKE_DIR_OK          133
+#define LEV_LSTD_MAKE_DIR_OK          LOG
+#define TXT_LSTD_MAKE_DIR_OK          "make direrctory %s failed"
+
 #define     LSTD_INI_SYNTAX_ERROR         200
 #define LEV_LSTD_INI_SYNTAX_ERROR         ERR
 #define TXT_LSTD_INI_SYNTAX_ERROR         "ini file syntax error near %s" 
