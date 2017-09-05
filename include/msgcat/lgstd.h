@@ -143,17 +143,21 @@
 #define LEV_LSTD_MAKE_DIR_OK              LOG
 #define TXT_LSTD_MAKE_DIR_OK              "make direrctory %s failed"
 
-#define     LSTD_ERR_REMOVE_DIR           135
-#define LEV_LSTD_ERR_REMOVE_DIR           ERR
-#define TXT_LSTD_ERR_REMOVE_DIR           "error writing file %s" 
+#define     LSTD_REMOVE_DIR_ERR           135
+#define LEV_LSTD_REMOVE_DIR_ERR           ERR
+#define TXT_LSTD_REMOVE_DIR_ERR           "error removing directory %s" 
 
-#define     LSTD_ERR_REMOVE_FILE          136
-#define LEV_LSTD_ERR_REMOVE_FILE          ERR
-#define TXT_LSTD_ERR_REMOVE_FILE          "error writing file %s" 
+#define     LSTD_REMOVE_FILE_ERR          136
+#define LEV_LSTD_REMOVE_FILE_ERR          ERR
+#define TXT_LSTD_REMOVE_FILE_ERR          "error removing file %s" 
 
 #define     LSTD_FILE_COPY_ERR            137
 #define LEV_LSTD_FILE_COPY_ERR            ERR
 #define TXT_LSTD_FILE_COPY_ERR            "failed to copy file %s to %s" 
+
+#define     LSTD_REMOVE_DIR_OK            138
+#define LEV_LSTD_REMOVE_DIR_OK            ERR
+#define TXT_LSTD_REMOVE_DIR_OK            "directory %s removed"
 
 #define     LSTD_INI_SYNTAX_ERROR         200
 #define LEV_LSTD_INI_SYNTAX_ERROR         ERR
