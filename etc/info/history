@@ -65,3 +65,4 @@
 0.14.02 double messages fixed
 0.14.03 new messages added
 1.00.00 install path /opt/mqm/tools
+1.00.01 LSTD_REMOVE_DIR_OK level set from ERR to LOG

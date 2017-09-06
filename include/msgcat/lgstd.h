@@ -156,7 +156,7 @@
 #define TXT_LSTD_FILE_COPY_ERR            "failed to copy file %s to %s" 
 
 #define     LSTD_REMOVE_DIR_OK            138
-#define LEV_LSTD_REMOVE_DIR_OK            ERR
+#define LEV_LSTD_REMOVE_DIR_OK            LOG
 #define TXT_LSTD_REMOVE_DIR_OK            "directory %s removed"
 
 #define     LSTD_INI_SYNTAX_ERROR         200
